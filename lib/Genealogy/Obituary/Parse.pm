@@ -41,7 +41,8 @@ sub parse_obituary {
     my ($text) = @_;
     my %rel;
 
-    if ($text =~ /(?:survived by|leaves behind)(?:.*?wife|husband|spouse)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i) {
+	if ($text =~ /(?:survived by|leaves behind).*?(?:wife|husband|spouse)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i) {
+    
         push @{ $rel{spouse} }, $1;
     }
 
