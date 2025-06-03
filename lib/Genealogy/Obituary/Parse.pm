@@ -5,7 +5,7 @@ use warnings;
 use Exporter 'import';
 
 our @EXPORT_OK = qw(parse_obituary);
-our $VERSION   = '0.01';
+our $VERSION	= '0.01';
 
 =head1 NAME
 
@@ -38,25 +38,37 @@ Returns a hashref of extracted relatives.
 =cut
 
 sub parse_obituary {
-    my ($text) = @_;
-    my %rel;
+	my $text = shift;
+	my %data;
 
-	if ($text =~ /(?:survived by|leaves behind).*?(?:wife|husband|spouse)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i) {
-    
-        push @{ $rel{spouse} }, $1;
-    }
+	my @patterns = (
+		[ qr/\bdaughters?\s+([^.,;]+)/i,      'children' ],
+		[ qr/\bsons?\s+([^.,;]+)/i,           'children' ],
+		[ qr/\bchildren\s+([^.,;]+)/i,        'children' ],
+		[ qr/\bgrandchildren\s+([^.]+)/i,   'grandchildren' ],
+		[ qr/\bwife\s+([^.,;]+)/i,            'spouse' ],
+		[ qr/\bhusband\s+([^.,;]+)/i,         'spouse' ],
+		[ qr/\bhis parents were\s+([^.,;]+)/i,'parents' ],
+		[ qr/\bhis father was\s+([^.,;]+)/i,  'parents' ],
+		[ qr/\bhis mother was\s+([^.,;]+)/i,  'parents' ],
+		[ qr/\bsister(?:s)?\s+([^.,;]+)/i,    'siblings' ],
+		[ qr/\bbrother(?:s)?\s+([^.,;]+)/i,   'siblings' ],
+		[ qr/\bsiblings\s+([^.,;]+)/i,        'siblings' ],
+	);
 
-    if ($text =~ /(?:sons|daughters|children)\s+([A-Z][a-z]+(?:\s+and\s+[A-Z][a-z]+)*)/i) {
-        my @kids = split /\s+and\s+/, $1;
-        push @{ $rel{children} }, @kids;
-    }
+	for my $p (@patterns) {
+		my ($re, $field) = @$p;
+		while ($text =~ /$re/g) {
+			my $list = $1 // '';
+			next unless $list;
 
-    if ($text =~ /grandchildren\s+([A-Z][a-z]+(?:\s+and\s+[A-Z][a-z]+)*)/i) {
-        my @grands = split /\s+and\s+/, $1;
-        push @{ $rel{grandchildren} }, @grands;
-    }
+			# Robust splitting on commas and "and"
+			my @names = grep { length } map { s/^\s+|\s+$//gr } split /\s*(?:,|(?:\band\b))\s*/i, $list;
+			push @{ $data{$field} }, @names;
+		}
+	}
 
-    return \%rel;
+	return \%data;
 }
 
 =head1 AUTHOR

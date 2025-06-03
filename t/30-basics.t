@@ -14,4 +14,4 @@ is_deeply $rel->{spouse}, ['Paul'], 'Extracted spouse';
 is_deeply $rel->{children}, ['Anna', 'Lucy'], 'Extracted children';
 is_deeply $rel->{grandchildren}, ['Jake', 'Emma'], 'Extracted grandchildren';
 
-done_testing;
+done_testing();
