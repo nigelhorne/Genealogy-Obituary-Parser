@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Exporter 'import';
 
-our @EXPORT_OK = qw(parse_obituary extract_family_info);
+our @EXPORT_OK = qw(parse_obituary);
 our $VERSION	= '0.01';
 
 =head1 NAME
@@ -37,46 +37,46 @@ Returns a hashref of extracted relatives.
 
 =cut
 
-# Algorithm 1
-sub parse_obituary {
-	my $text = shift;
-	my %data;
-
-	my @patterns = (
-		[ qr/\bdaughters?\s+([^.,;]+)/i,      'children' ],
-		[ qr/\bsons?\s+([^.,;]+)/i,           'children' ],
-		[ qr/\bchildren\s+([^.,;]+)/i,        'children' ],
-		[ qr/\bgrandchildren\s+([^.]+)/i,   'grandchildren' ],
-		[ qr/\bwife\s+([^.,;]+)/i,            'spouse' ],
-		[ qr/\bhusband\s+([^.,;]+)/i,         'spouse' ],
-		[ qr/\bhis parents were\s+([^.,;]+)/i,'parents' ],
-		[ qr/\bhis father was\s+([^.,;]+)/i,  'parents' ],
-		[ qr/\bhis mother was\s+([^.,;]+)/i,  'parents' ],
-		[ qr/\bsister(?:s)?\s+([^.,;]+)/i,    'siblings' ],
-		[ qr/\bbrother(?:s)?\s+([^.,;]+)/i,   'siblings' ],
-		[ qr/\bsiblings\s+([^.,;]+)/i,        'siblings' ],
-	);
-
-	for my $p (@patterns) {
-		my ($re, $field) = @$p;
-		while ($text =~ /$re/g) {
-			my $list = $1 // '';
-			next unless $list;
-
-			# Robust splitting on commas and "and"
-			my @names = grep { length } map { s/^\s+|\s+$//gr } split /\s*(?:,|(?:\band\b))\s*/i, $list;
-			push @{ $data{$field} }, @names;
-		}
-	}
-
-	return \%data;
-}
-
-# Algorithm 2 - needs to be expanded to include algorithm 1, then algorithm 1 can be removed
-sub extract_family_info
+sub parse_obituary
 {
 	my $text = shift;
-	my %family = %{parse_obituary($text)};
+
+	# Quick scan to get started
+	sub parse_obituary_quick {
+		my $text = shift;
+		my %data;
+
+		my @patterns = (
+			[ qr/\bdaughters?\s+([^.,;]+)/i,      'children' ],
+			[ qr/\bsons?\s+([^.,;]+)/i,           'children' ],
+			[ qr/\bchildren\s+([^.,;]+)/i,        'children' ],
+			[ qr/\bgrandchildren\s+([^.]+)/i,   'grandchildren' ],
+			[ qr/\bwife\s+([^.,;]+)/i,            'spouse' ],
+			[ qr/\bhusband\s+([^.,;]+)/i,         'spouse' ],
+			[ qr/\bhis parents were\s+([^.,;]+)/i,'parents' ],
+			[ qr/\bhis father was\s+([^.,;]+)/i,  'parents' ],
+			[ qr/\bhis mother was\s+([^.,;]+)/i,  'parents' ],
+			[ qr/\bsister(?:s)?\s+([^.,;]+)/i,    'siblings' ],
+			[ qr/\bbrother(?:s)?\s+([^.,;]+)/i,   'siblings' ],
+			[ qr/\bsiblings\s+([^.,;]+)/i,        'siblings' ],
+		);
+
+		for my $p (@patterns) {
+			my ($re, $field) = @$p;
+			while ($text =~ /$re/g) {
+				my $list = $1 // '';
+				next unless $list;
+
+				# Robust splitting on commas and "and"
+				my @names = grep { length } map { s/^\s+|\s+$//gr } split /\s*(?:,|(?:\band\b))\s*/i, $list;
+				push @{ $data{$field} }, @names;
+			}
+		}
+
+		return \%data;
+	}
+
+	my %family = %{parse_obituary_quick($text)};
 
 	# Helper to extract people from a specific section and remove empty entries
 	sub extract_people_section {
