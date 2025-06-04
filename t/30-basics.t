@@ -17,12 +17,12 @@ diag explain $rel unless defined $rel->{spouse};
 cmp_deeply($rel,
 	{
 		'spouse' => [
-			{ 'name' => 'Paul' }
+			{ 'name' => 'Paul', 'sex' => 'M', 'status' => 'living' }
 		], 'children' => [
-			{ 'name' => 'Anna' }, 
-			{ 'name' => 'Lucy' }
+			{ 'name' => 'Anna', 'sex' => 'F' },
+			{ 'name' => 'Lucy', 'sex' => 'F' }
 		], 'grandchildren' => [
-			{ 'name' => 'Jake' }, 
+			{ 'name' => 'Jake' },
 			{ 'name' => 'Emma' }
 		]
 	}

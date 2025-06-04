@@ -78,7 +78,8 @@ sub parse_obituary
 		return \%data;
 	}
 
-	my %family = %{parse_obituary_quick($text)};
+	# my %family = %{parse_obituary_quick($text)};
+	my %family;
 
 	# Helper to extract people from a specific section and remove empty entries
 	sub extract_people_section {
@@ -156,18 +157,19 @@ sub parse_obituary
 		}
 
 		# Fallback: Split by comma or 'and'
+		$phrase =~ s/, and grandchildren.+//;	# Handle "Anna and Lucy, and grandchildren Jake and Emma"
 		my @parts = split /\s*(?:,|and)\s*/, $phrase;
-		push @names, @parts;
+		push @names, grep { defined($_) && $_ ne '' } @parts;
 		return @names;
 	}
 
-	if($text =~ /\ssons?,\s*(.+?)[;\.]/) {
+	if($text =~ /\ssons?[,\s]\s*(.+?)[;\.]/) {
 		my $raw = $1;
 		$raw =~ s/\sand their .+//;
 		my @children = extract_names_from_phrase($raw);
 		push @{$family{children}}, map { { name => $_, sex => 'M' } } @children;
 	}
-	if($text =~ /\sdaughters?,\s*(.+?)[;\.]/) {
+	if($text =~ /\sdaughters?[,\s]\s*(.+?)[;\.]/) {
 		my $raw = $1;
 		$raw =~ s/\sand their .+//;
 		my @children = extract_names_from_phrase($raw);
@@ -209,7 +211,10 @@ sub parse_obituary
 
 	# Extract grandchildren
 	if(!$family{'grandchildren'}) {
-		$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($text =~ /grandchildren\s+([^\.;]+)/i)[0] || '' ];
+		my @grandchildren = split /\s*(?:,|and)\s*/i, ($text =~ /grandchildren\s+([^\.;]+)/i)[0];
+		if(scalar(@grandchildren)) {
+			$family{'grandchildren'} = [ map { { 'name' => $_ } } grep { defined $_ && $_ ne '' } @grandchildren ];
+		}
 	}
 	if(scalar @{$family{grandchildren}}) {
 		while((exists $family{'grandchildren'}->[0]) && (length($family{'grandchildren'}->[0]) == 0)) {
@@ -248,7 +253,7 @@ sub parse_obituary
 	} else {
 		my @siblings;
 
-		while ($text =~ /\bsister,\s*([A-Z][a-z]+(?:\s+[A-Z][a-z.]+)*)(?:,\s*([A-Z][a-z]+))?/g) {
+		while ($text =~ /\bsister[,\s]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z.]+)*)(?:,\s*([A-Z][a-z]+))?/g) {
 			my $name = $1;
 			$family{'sisters'} ||= [];
 			if($name eq 'Mrs') {
@@ -336,6 +341,8 @@ sub parse_obituary
 		$family{'spouse'} ||= [];
 
 		push @{$family{'spouse'}}, { name => $1 }
+	} elsif($text =~ /\bsurvived by her husband ([^.,;]+)/i) {
+		push @{$family{'spouse'}}, { name => $1, 'status' => 'living', 'sex' => 'M' }
 	}
 
 	# Ensure spouse location is properly handled

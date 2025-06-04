@@ -11,24 +11,24 @@ END
 
 my $rel = parse_obituary($text);
 
-# diag(Data::Dumper->new([$rel])->Dump());
+diag(Data::Dumper->new([$rel])->Dump());
 
 cmp_deeply($rel,
 	{
 		'spouse' => [
 			{ 'name' => 'Mary' }
 		], 'parents' => [
-			{ 'name' => 'George' }, 
+			{ 'name' => 'George' },
 			{ 'name' => 'Helen' }
 		], 'children' => [
-			{ 'name' => 'John' }, 
-			{ 'name' => 'David' }
+			{ 'name' => 'John', 'sex' => 'M' },
+			{ 'name' => 'David', 'sex' => 'M' }
 		], 'grandchildren' => [
-			{ 'name' => 'Sophie' }, 
+			{ 'name' => 'Sophie' },
 			{ 'name' => 'Liam' },
 			{ 'name' => 'Ava' }
-		], 'siblings' => [
-			{ 'name' => 'Claire' }, 
+		], 'sisters' => [
+			{ 'name' => 'Claire', 'status' => 'living' },
 		]
 	}
 );
