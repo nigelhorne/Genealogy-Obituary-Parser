@@ -211,12 +211,14 @@ sub parse_obituary
 
 	# Extract grandchildren
 	if(!$family{'grandchildren'}) {
-		my @grandchildren = split /\s*(?:,|and)\s*/i, ($text =~ /grandchildren\s+([^\.;]+)/i)[0];
-		if(scalar(@grandchildren)) {
-			$family{'grandchildren'} = [ map { { 'name' => $_ } } grep { defined $_ && $_ ne '' } @grandchildren ];
+		if($text =~ /grandchildren\s+([^\.;]+)/i) {
+			my @grandchildren = split /\s*(?:,|and)\s*/i, $1;
+			if(scalar(@grandchildren)) {
+				$family{'grandchildren'} = [ map { { 'name' => $_ } } grep { defined $_ && $_ ne '' } @grandchildren ];
+			}
 		}
 	}
-	if(scalar @{$family{grandchildren}}) {
+	if($family{'grandchildren'} && scalar @{$family{grandchildren}}) {
 		while((exists $family{'grandchildren'}->[0]) && (length($family{'grandchildren'}->[0]) == 0)) {
 			shift @{$family{'grandchildren'}};
 		}
@@ -306,6 +308,11 @@ sub parse_obituary
 		$family{parents} = {
 			father => { name => $father },
 			mother => { name => $mother },
+		};
+	} elsif($text =~ /parents were (\w+) and (\w+)/i) {
+		$family{parents} = {
+			father => { name => $1 },
+			mother => { name => $2 },
 		};
 	}
 

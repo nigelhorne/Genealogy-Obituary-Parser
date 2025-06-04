@@ -16,11 +16,11 @@ diag(Data::Dumper->new([$rel])->Dump());
 cmp_deeply($rel,
 	{
 		'spouse' => [
-			{ 'name' => 'Mary' }
-		], 'parents' => [
-			{ 'name' => 'George' },
-			{ 'name' => 'Helen' }
-		], 'children' => [
+			{ 'name' => 'Mary', 'sex' => 'F', 'status' => 'living' }
+		], 'parents' => {
+			'father' => { 'name' => 'George' },
+			'mother' => { 'name' => 'Helen' }
+		}, 'children' => [
 			{ 'name' => 'John', 'sex' => 'M' },
 			{ 'name' => 'David', 'sex' => 'M' }
 		], 'grandchildren' => [

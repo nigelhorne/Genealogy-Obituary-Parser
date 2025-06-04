@@ -17,7 +17,7 @@ By personal request there will be no visitation at the funeral home
 STR
 
 my $foo = parse_obituary($str);
-diag(Data::Dumper->new([$foo])->Dump());
+# diag(Data::Dumper->new([$foo])->Dump());
 cmp_deeply($foo,
 	{
 		'sisters' => [
