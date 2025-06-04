@@ -2,6 +2,8 @@ package Genealogy::Obituary::Parse;
 
 use strict;
 use warnings;
+
+use DateTime::Format::Text;
 use Exporter 'import';
 
 our @EXPORT_OK = qw(parse_obituary);
@@ -50,7 +52,7 @@ sub parse_obituary
 			[ qr/\bdaughters?\s+([^.,;]+)/i,      'children' ],
 			[ qr/\bsons?\s+([^.,;]+)/i,           'children' ],
 			[ qr/\bchildren\s+([^.,;]+)/i,        'children' ],
-			[ qr/\bgrandchildren\s+([^.]+)/i,   'grandchildren' ],
+			[ qr/\bgrandchildren\s+([^.;]+)/i,   'grandchildren' ],
 			[ qr/\bwife\s+([^.,;]+)/i,            'spouse' ],
 			[ qr/\bhusband\s+([^.,;]+)/i,         'spouse' ],
 			[ qr/\bhis parents were\s+([^.,;]+)/i,'parents' ],
@@ -64,12 +66,12 @@ sub parse_obituary
 		for my $p (@patterns) {
 			my ($re, $field) = @$p;
 			while ($text =~ /$re/g) {
-				my $list = $1 // '';
+				my $list = $1;
 				next unless $list;
 
 				# Robust splitting on commas and "and"
 				my @names = grep { length } map { s/^\s+|\s+$//gr } split /\s*(?:,|(?:\band\b))\s*/i, $list;
-				push @{ $data{$field} }, @names;
+				push @{$data{$field}}, map { { 'name' => $_ } } @names;
 			}
 		}
 
@@ -206,7 +208,9 @@ sub parse_obituary
 
 
 	# Extract grandchildren
-	$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($text =~ /grandchildren\s+([^\.;]+)/i)[0] || '' ];
+	if(!$family{'grandchildren'}) {
+		$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($text =~ /grandchildren\s+([^\.;]+)/i)[0] || '' ];
+	}
 	if(scalar @{$family{grandchildren}}) {
 		while((exists $family{'grandchildren'}->[0]) && (length($family{'grandchildren'}->[0]) == 0)) {
 			shift @{$family{'grandchildren'}};

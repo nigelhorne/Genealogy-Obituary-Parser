@@ -11,12 +11,26 @@ END
 
 my $rel = parse_obituary($text);
 
-# diag (Data::Dumper->new([$rel])->Dump());
+# diag(Data::Dumper->new([$rel])->Dump());
 
-is_deeply $rel->{spouse},        ['Mary'],                        'Extracted spouse';
-is_deeply $rel->{children},      ['John', 'David'],              'Extracted children';
-is_deeply $rel->{grandchildren}, ['Sophie', 'Liam', 'Ava'],      'Extracted grandchildren';
-is_deeply $rel->{parents},       ['George', 'Helen'],            'Extracted parents';
-is_deeply $rel->{siblings},      ['Claire'],                     'Extracted siblings';
+cmp_deeply($rel,
+	{
+		'spouse' => [
+			{ 'name' => 'Mary' }
+		], 'parents' => [
+			{ 'name' => 'George' }, 
+			{ 'name' => 'Helen' }
+		], 'children' => [
+			{ 'name' => 'John' }, 
+			{ 'name' => 'David' }
+		], 'grandchildren' => [
+			{ 'name' => 'Sophie' }, 
+			{ 'name' => 'Liam' },
+			{ 'name' => 'Ava' }
+		], 'siblings' => [
+			{ 'name' => 'Claire' }, 
+		]
+	}
+);
 
 done_testing();
