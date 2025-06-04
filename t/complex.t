@@ -139,8 +139,8 @@ cmp_deeply($foo,
 		}, 'sisters' => [
 			  { 'name' => 'Phyllis Huestis' }
 		], 'children' => [
-			   { 'name' => 'Anne', 'sex' => 'F', spouse => { 'name' => 'Malcolm', 'sex' => 'M' } },	# spouse should be 'Malcolm Maxwell'
-			   { 'name' => 'Boyd', 'sex' => 'M' }
+			   { 'name' => 'Anne', 'sex' => 'F', spouse => { 'name' => 'Malcolm', 'sex' => 'M' } },	# FIXME: spouse should be 'Malcolm Maxwell'
+			   { 'name' => 'Boyd', 'sex' => 'M' },	# FIXME: should be Boyd R
 		], 'brothers' => [
 			   { 'status' => 'living', 'name' => 'Ralph N.' }
 		], 'death' => {

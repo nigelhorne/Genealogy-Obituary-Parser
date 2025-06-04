@@ -180,7 +180,7 @@ sub parse_obituary
 	} elsif($text =~ /sons,?\s+([a-z]+)\s+and\s+([a-z]+)/i) {
 		my @children;
 		push @children, { name => $1, sex => 'M' }, { name => $2, sex => 'M' };
-    		if($text =~ /daughter,?\s([a-z]+)/i) {
+		if($text =~ /daughter,?\s([a-z]+)/i) {
 			push @children, { 'name' => $1, 'sex' => 'F' }
 		}
 		$family{children} = \@children if @children;
