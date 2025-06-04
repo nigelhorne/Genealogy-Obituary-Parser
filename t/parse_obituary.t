@@ -22,4 +22,11 @@ is_deeply $rel->{siblings},      ['Claire'],                     'Extracted sibl
 $rel = extract_family_info($text);
 
 # diag (Data::Dumper->new([$rel])->Dump());
+
+is_deeply $rel->{spouse},        ['Mary'],                        'Extracted spouse';
+is_deeply $rel->{children},      ['John', 'David'],              'Extracted children';
+is_deeply $rel->{grandchildren}, ['Sophie', 'Liam', 'Ava'],      'Extracted grandchildren';
+is_deeply $rel->{parents},       ['George', 'Helen'],            'Extracted parents';
+is_deeply $rel->{siblings},      ['Claire'],                     'Extracted siblings';
+
 done_testing();

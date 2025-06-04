@@ -21,4 +21,12 @@ is_deeply $rel->{grandchildren}, ['Jake', 'Emma'], 'Extracted grandchildren';
 $rel = extract_family_info($text);
 
 # diag (Data::Dumper->new([$rel])->Dump());
+
+ok(defined $rel->{spouse}, 'Spouse field is defined');
+diag explain $rel unless defined $rel->{spouse};
+
+is_deeply $rel->{spouse}, ['Paul'], 'Extracted spouse';
+is_deeply $rel->{children}, ['Anna', 'Lucy'], 'Extracted children';
+is_deeply $rel->{grandchildren}, ['Jake', 'Emma'], 'Extracted grandchildren';
+
 done_testing();

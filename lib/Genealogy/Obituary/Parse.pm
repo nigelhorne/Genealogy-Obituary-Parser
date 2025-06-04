@@ -76,7 +76,7 @@ sub parse_obituary {
 sub extract_family_info
 {
 	my $text = shift;
-	my %family;
+	my %family = %{parse_obituary($text)};
 
 	# Helper to extract people from a specific section and remove empty entries
 	sub extract_people_section {
@@ -335,7 +335,7 @@ sub extract_family_info
 	}
 
 	# Ensure spouse location is properly handled
-	if (exists $family{spouse} && defined $family{spouse}[0]{location} && $family{spouse}[0]{location} eq 'the late') {
+	if(exists $family{spouse} && (ref $family{'spouse'} eq 'HASH') && defined $family{spouse}[0]{location} && $family{spouse}[0]{location} eq 'the late') {
 		delete $family{spouse}[0]{location};
 	}
 
