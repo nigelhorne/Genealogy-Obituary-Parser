@@ -142,23 +142,20 @@ cmp_deeply($foo,
 		], 'children' => [
 			   { 'name' => 'Boyd R', 'sex' => 'M' },
 			   { 'name' => 'Anne (Malcolm) Maxwell', 'sex' => 'F' }
-		 ], 'brothers' => [
-			   {
-			     'status' => 'living',
-			     'name' => 'Ralph N.'
-			   }
-		 ], 'death' => {
+		], 'brothers' => [
+			   { 'status' => 'living', 'name' => 'Ralph N.' }
+		], 'death' => {
 			'place' => 'home',
 			'date' => 'April 16, 2007'
-	      }, 'birth' => {
+		}, 'birth' => {
 			'place' => 'Fredericton',
 			'date' => 'Jul 19, 1925'
-	      }, 'spouse' => [
+		}, 'spouse' => [
 			 {
-			   'name' => 'Ruth Howland',
-			   'married' => {
-				  'place' => 'Baptish Church',
-				  'date' => 'Aug 6, 1955'
+				'name' => 'Ruth Howland',
+				'married' => {
+					'place' => 'Baptish Church',
+					'date' => 'Aug 6, 1955'
 				}
 			 }
 	       ], 'funeral' => {
