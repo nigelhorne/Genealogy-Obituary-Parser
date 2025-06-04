@@ -12,7 +12,7 @@ my $rel = parse_obituary($text);
 # diag(Data::Dumper->new([$rel])->Dump());
 
 ok(defined $rel->{spouse}, 'Spouse field is defined');
-diag explain $rel unless defined $rel->{spouse};
+# diag $rel unless defined $rel->{spouse};
 
 cmp_deeply($rel,
 	{

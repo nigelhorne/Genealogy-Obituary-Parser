@@ -17,7 +17,6 @@ By personal request there will be no visitation at the funeral home
 STR
 
 my $foo = parse_obituary($str);
-# diag(Data::Dumper->new([$foo])->Dump());
 cmp_deeply($foo,
 	{
 		'sisters' => [
@@ -140,8 +139,8 @@ cmp_deeply($foo,
 		}, 'sisters' => [
 			  { 'name' => 'Phyllis Huestis' }
 		], 'children' => [
-			   { 'name' => 'Boyd R', 'sex' => 'M' },
-			   { 'name' => 'Anne (Malcolm) Maxwell', 'sex' => 'F' }
+			   { 'name' => 'Anne', 'sex' => 'F', spouse => { 'name' => 'Malcolm', 'sex' => 'M' } },	# spouse should be 'Malcolm Maxwell'
+			   { 'name' => 'Boyd', 'sex' => 'M' }
 		], 'brothers' => [
 			   { 'status' => 'living', 'name' => 'Ralph N.' }
 		], 'death' => {
@@ -185,9 +184,9 @@ diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
 cmp_deeply($foo,
 	{
 	   'children' => [
-			   { 'name' => 'Christopher Cloud', 'sex' => 'M' },
-			   { 'name' => 'Thomas Cloud', 'sex' => 'M' },
-			   { 'name' => 'Marsha Cloud', 'sex' => 'F' }
+			   { 'name' => 'Christopher', 'sex' => 'M' },
+			   { 'name' => 'Thomas', 'sex' => 'M' },
+			   { 'name' => 'Marsha', 'sex' => 'F' }
 			 ],
 	   'birth' => {
 			'date' => '1937/05/21',

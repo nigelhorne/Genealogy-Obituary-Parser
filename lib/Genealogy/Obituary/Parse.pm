@@ -177,6 +177,13 @@ sub parse_obituary
 		my $children_text = $1;
 		$children_text =~ s/, grandmother.+//;
 		$family{children} = extract_people_section($children_text);
+	} elsif($text =~ /sons,?\s+([a-z]+)\s+and\s+([a-z]+)/i) {
+		my @children;
+		push @children, { name => $1, sex => 'M' }, { name => $2, sex => 'M' };
+    		if($text =~ /daughter,?\s([a-z]+)/i) {
+			push @children, { 'name' => $1, 'sex' => 'F' }
+		}
+		$family{children} = \@children if @children;
 	} else {
 		my @children;
 		while($text =~ /\b(son|daughter)s?,\s*([A-Z][a-z]+(?:\s+\([A-Z][a-z]+\))?)\s*(?:and their children ([^.;]+))?/g) {
@@ -186,8 +193,11 @@ sub parse_obituary
 			if(my @grandchildren = $grandkids ? split /\s*,\s*|\s+and\s+/, $grandkids : ()) {
 				push @children, {
 					name => $child,
+					sex => $sex,
 					grandchildren => \@grandchildren,
 				};
+			} elsif(($sex eq 'F') && ($child =~ /(.+)\s+\((.+)\)/)) {
+				push @children, { name => $1, sex => 'F', spouse => { name => $2, sex => 'M' } }
 			} else {
 				push @children, { name => $child, sex => $sex }
 			}
