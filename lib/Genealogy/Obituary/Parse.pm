@@ -291,6 +291,7 @@ sub parse_obituary
 		my $brothers_text = $2;
 		$brothers_text =~ s/^,\s+//;
 		$family{brothers} = extract_people_section($brothers_text);
+		# TODO: mark all statuses to deceased
 	} else {
 		my @siblings;
 
@@ -300,6 +301,13 @@ sub parse_obituary
 				name   => $1,
 				status => ($text =~ /\bpredeceased by.*?$1/i) ? 'deceased' : 'living',
 			};
+		}
+		if((!$family{'brothers'}) && (!$family{'sisters'}) && (!$family{'siblings'})) {
+			if($text =~ /sister of ([a-z]+) and ([a-z]+)/i) {
+				push @{$family{'siblings'}},
+					{ 'name' => $1 },
+					{ 'name' => $2 }
+			}
 		}
 	}
 
