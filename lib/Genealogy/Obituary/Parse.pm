@@ -187,6 +187,10 @@ sub parse_obituary
 	} else {
 		my @children;
 
+		# use Lingua::EN::Tagger;
+		# my $tagger = Lingua::EN::Tagger->new(longest_noun_phrase => 0);
+		# my $tagged = $tagger->add_tags($text);
+
 		if($text =~ /\ssons,\s*(.*?);/s) {
 			my $sons_text = $1;
 			while($sons_text =~ /([\w. ]+?),\s*([\w. ]+?)(?:\s+and|\z)/g) {
