@@ -244,6 +244,6 @@ Fort Wayne Journal Gazette, 20 February 1977:  Word has been received of the dea
 STR
 
 $foo = parse_obituary($str);
-# diag(Data::Dumper->new([$foo])->Dump());
+diag(Data::Dumper->new([$foo])->Dump());
 
 done_testing();

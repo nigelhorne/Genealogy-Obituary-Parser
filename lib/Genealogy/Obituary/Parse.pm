@@ -198,7 +198,7 @@ sub parse_obituary
 				};
 			} elsif(($sex eq 'F') && ($child =~ /(.+)\s+\((.+)\)/)) {
 				push @children, { name => $1, sex => 'F', spouse => { name => $2, sex => 'M' } }
-			} else {
+			} elsif($child ne 'Mrs') {
 				push @children, { name => $child, sex => $sex }
 			}
 		}
