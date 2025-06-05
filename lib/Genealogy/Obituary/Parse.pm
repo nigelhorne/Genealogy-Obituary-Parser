@@ -9,6 +9,9 @@ use Exporter 'import';
 our @EXPORT_OK = qw(parse_obituary);
 our $VERSION	= '0.01';
 
+# TODO:
+# use Lingua::EN::Tagger;
+
 =head1 NAME
 
 Genealogy::Obituary::Parse - Extract structured family relationships from obituary text
@@ -187,7 +190,6 @@ sub parse_obituary
 	} else {
 		my @children;
 
-		# use Lingua::EN::Tagger;
 		# my $tagger = Lingua::EN::Tagger->new(longest_noun_phrase => 0);
 		# my $tagged = $tagger->add_tags($text);
 
@@ -524,7 +526,11 @@ sub parse_obituary
 }
 =head1 AUTHOR
 
-Nigel Horne
+Nigel Horne, C<< <njh at nigelhorne.com> >>
+
+=head1 SUPPORT
+
+This module is provided as-is without any warranty.
 
 =head1 LICENSE
 

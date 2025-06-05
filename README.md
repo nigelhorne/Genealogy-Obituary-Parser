@@ -30,7 +30,11 @@ Returns a hashref of extracted relatives.
 
 # AUTHOR
 
-Nigel Horne
+Nigel Horne, `<njh at nigelhorne.com>`
+
+# SUPPORT
+
+This module is provided as-is without any warranty.
 
 # LICENSE
 
