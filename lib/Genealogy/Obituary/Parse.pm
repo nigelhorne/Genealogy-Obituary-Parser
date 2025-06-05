@@ -254,7 +254,9 @@ sub parse_obituary
 		if(scalar(@grandchildren)) {
 			$family{'grandchildren'} = \@grandchildren;
 		} else {
-			$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($text =~ /grandma\sto\s+([^\.;]+)/i)[0] || '' ];
+			my $t = $text;
+			$t =~ s/.+(grandm\w+\s+.+?\sand\s[\w\.;,]+).+/$1/;
+			$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($t =~ /grandm\w+\sto\s+([^\.;]+)/i)[0] || '' ];
 		}
 	}
 
