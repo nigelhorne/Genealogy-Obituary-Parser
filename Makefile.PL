@@ -23,6 +23,6 @@ WriteMakefile(
 		'Test::Needs' => 0
 	}, dist => $dist,
 	clean	 => {
-		FILES => 'Genealogy-Obiturary-Parse-*',
+		FILES => 'Genealogy-Obituary-Parse-*',
 	}
 );
