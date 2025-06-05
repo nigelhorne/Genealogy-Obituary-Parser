@@ -18,7 +18,9 @@ WriteMakefile(
 	PREREQ_PM    => {
 		'DateTime::Format::Text' => 0
 	}, TEST_REQUIRES => {
+		'Test::DescribeMe' => 0,
 		'Test::Most' => 0,
+		'Test::Needs' => 0
 	}, dist => $dist,
 	clean	 => {
 		FILES => 'Genealogy-Obiturary-Parse-*',
