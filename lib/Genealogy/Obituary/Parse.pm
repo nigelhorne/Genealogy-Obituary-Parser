@@ -186,20 +186,43 @@ sub parse_obituary
 		$family{children} = \@children if @children;
 	} else {
 		my @children;
-		while($text =~ /\b(son|daughter)s?,\s*([A-Z][a-z]+(?:\s+\([A-Z][a-z]+\))?)\s*(?:and their children ([^.;]+))?/g) {
-			my $sex = $1 eq 'son' ? 'M' : 'F';
-			my $child = $2;
-			my $grandkids = $3;
-			if(my @grandchildren = $grandkids ? split /\s*,\s*|\s+and\s+/, $grandkids : ()) {
+
+		if($text =~ /\ssons,\s*(.*?);/s) {
+			my $sons_text = $1;
+			while($sons_text =~ /([\w. ]+?),\s*([\w. ]+?)(?:\s+and|\z)/g) {
 				push @children, {
-					name => $child,
-					sex => $sex,
-					grandchildren => \@grandchildren,
+					name => $1,
+					location => $2,
+					sex => 'M',
 				};
-			} elsif(($sex eq 'F') && ($child =~ /(.+)\s+\((.+)\)/)) {
-				push @children, { name => $1, sex => 'F', spouse => { name => $2, sex => 'M' } }
-			} elsif($child ne 'Mrs') {
-				push @children, { name => $child, sex => $sex }
+			}
+		}
+		if($text =~ /\sdaughters?,\s*Mrs\.\s+(.+?)\s+(\w+),\s+([^;]+)\sand/) {
+			push @children, {
+				name => $1,
+				location => $3,
+				sex => 'F',
+				spouse => { 'name' => $2, sex => 'M' }
+			};
+		}
+		$family{children} = \@children if @children;
+
+		if(!$family{'children'}) {
+			while($text =~ /\b(son|daughter)s?,\s*([A-Z][a-z]+(?:\s+\([A-Z][a-z]+\))?)\s*(?:and their children ([^.;]+))?/g) {
+				my $sex = $1 eq 'son' ? 'M' : 'F';
+				my $child = $2;
+				my $grandkids = $3;
+				if(my @grandchildren = $grandkids ? split /\s*,\s*|\s+and\s+/, $grandkids : ()) {
+					push @children, {
+						name => $child,
+						sex => $sex,
+						grandchildren => \@grandchildren,
+					};
+				} elsif(($sex eq 'F') && ($child =~ /(.+)\s+\((.+)\)/)) {
+					push @children, { name => $1, sex => 'F', spouse => { name => $2, sex => 'M' } }
+				} elsif($child ne 'Mrs') {
+					push @children, { name => $child, sex => $sex }
+				}
 			}
 		}
 		$family{children} = \@children if @children;
@@ -371,7 +394,7 @@ sub parse_obituary
 		push @{$family{'spouse'}}, { name => $1 }
 	} elsif($text =~ /\bsurvived by her husband ([^.,;]+)/i) {
 		push @{$family{'spouse'}}, { name => $1, 'status' => 'living', 'sex' => 'M' }
-	} elsif($text =~ /\bsurvived by his wife ([^.,;]+)/i) {
+	} elsif($text =~ /\bsurvived by his wife[,\s]+([^.,;]+)/i) {
 		push @{$family{'spouse'}}, { name => $1, 'status' => 'living', 'sex' => 'F' }
 	}
 
