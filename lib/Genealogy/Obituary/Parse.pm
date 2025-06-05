@@ -20,7 +20,7 @@ Genealogy::Obituary::Parse - Extract structured family relationships from obitua
 
   use Genealogy::Obituary::Parse qw(parse_obituary);
 
-  my $text = "She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.";
+  my $text = 'She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.';
   my $data = parse_obituary($text);
 
   # $data = {
@@ -63,7 +63,7 @@ sub parse_obituary
 			[ qr/\bhis mother was\s+([^.,;]+)/i,  'parents' ],
 			[ qr/\bsister(?:s)?\s+([^.,;]+)/i,    'siblings' ],
 			[ qr/\bbrother(?:s)?\s+([^.,;]+)/i,   'siblings' ],
-			[ qr/\bsiblings\s+([^.,;]+)/i,        'siblings' ],
+			[ qr/\bsiblings\s+([^.,;]+)/i,       'siblings' ],
 		);
 
 		for my $p (@patterns) {
@@ -89,7 +89,7 @@ sub parse_obituary
 		my $section = shift;
 		return unless $section;
 
-		$section =~ s/\s+and\s+/, /g;  # Ensure "and" is treated as a separator
+		$section =~ s/\s+and\s+/, /g;	# Ensure "and" is treated as a separator
 		$section =~ s/([A-Za-z]+),\s+([A-Z]{2})/$1<<COMMA>>$2/g;
 		my @entries = split /\s*,\s*/, $section;
 
@@ -116,7 +116,7 @@ sub parse_obituary
 				$name = $entry;
 			}
 
-			next if !$name;  # Skip if name is empty
+			next if !$name;	# Skip if name is empty
 			next if($name =~ /^father-in-law\sto\s/);	# Skip follow ons
 			last if($name =~ /^devoted\s/i);
 			last if($name =~ /^loved\s/i);
@@ -170,13 +170,13 @@ sub parse_obituary
 	if ($text =~ /survived by (his|her) children\s*([^\.;]+)/i) {
 		my $children_text = $2;
 		$family{children} = extract_people_section($children_text);
-	} elsif ($text =~ /Loving mum to\s*([^\.;]+)/i) {  # Look for the phrase "Loving mum to"
+	} elsif ($text =~ /Loving mum to\s*([^\.;]+)/i) {	# Look for the phrase "Loving mum to"
 		my $children_text = $1;
 		$family{children} = extract_people_section($children_text);
 	} elsif ($text =~ /Loving father of\s*([^\.;]+)/i) {	# Look for the phrase "Loving father of"
 		my $children_text = $1;
 		$family{children} = extract_people_section($children_text);
-	} elsif($text =~ /mother of\s*([^\.;]+)?,/i) {  # Look for the phrase "mother of"
+	} elsif($text =~ /mother of\s*([^\.;]+)?,/i) {	# Look for the phrase "mother of"
 		my $children_text = $1;
 		$children_text =~ s/, grandmother.+//;
 		$family{children} = extract_people_section($children_text);
@@ -309,7 +309,7 @@ sub parse_obituary
 			}
 			if($name) {
 				push @{$family{sisters}}, {
-					name   => $name,
+					name => $name,
 					status => ($text =~ /\bpredeceased by.*?$name/i) ? 'deceased' : 'living',
 				};
 			}
@@ -327,7 +327,7 @@ sub parse_obituary
 		while ($text =~ /\bbrother,\s*([A-Z][a-z]+(?:\s+[A-Z][a-z.]+)*)(?:,\s*([A-Z][a-z]+))?/g) {
 			$family{'brothers'} ||= [];
 			push @{$family{brothers}}, {
-				name   => $1,
+				name => $1,
 				status => ($text =~ /\bpredeceased by.*?$1/i) ? 'deceased' : 'living',
 			};
 		}
@@ -386,7 +386,7 @@ sub parse_obituary
 		push @{$family{'spouse'}}, {
 			name => $1,
 			married => {
-				date  => $2,
+				date => $2,
 				place => $3 // '',
 			}
 		};
@@ -455,7 +455,7 @@ sub parse_obituary
 	if($text =~ /[^\b]Born in ([^,]+),.*?\b(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})/i) {
 		$family{birth} = {
 			place => $1,
-			date  => $2,
+			date => $2,
 		}
 	} elsif($text =~ /[^\b]Born in ([a-z,\.\s]+)\s+on\s+(.+)/i) {
 		$family{'birth'}->{'place'} = $1;
