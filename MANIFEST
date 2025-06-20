@@ -11,3 +11,4 @@ t/complex.t
 t/eof.t
 t/eol.t
 t/parse_obituary.t
+t/pod.t
