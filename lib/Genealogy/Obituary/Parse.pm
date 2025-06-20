@@ -4,6 +4,8 @@ use strict;
 use warnings;
 
 use DateTime::Format::Text;
+use Geo::Coder::Free;
+use Geo::Coder::List;
 use Exporter 'import';
 
 our @EXPORT_OK = qw(parse_obituary);
@@ -459,12 +461,15 @@ sub parse_obituary
 		}
 	} elsif($text =~ /[^\b]Born in ([a-z,\.\s]+)\s+on\s+(.+)/i) {
 		$family{'birth'}->{'place'} = $1;
-		if(my $dt = DateTime::Format::Text->parse_datetime($2)) {
+		if(my $location = _extract_location($1)) {
+			$family{'birth'}->{'location'} = $location;
+		}
+		if(my $dt = _extract_date($2)) {
 			$family{'birth'}->{date} = $dt->ymd('/');
 		}
 		$family{'birth'}->{'place'} =~ s/\s+$//;
 	} elsif($text =~ /S?he was born (.+)\sin ([a-z,\.\s]+)\s+to\s+(.+?)\sand\s(.+?)\./i) {
-		if(my $dt = DateTime::Format::Text->parse_datetime($1)) {
+		if(my $dt = _extract_date($1)) {
 			$family{'birth'}->{date} = $dt->ymd('/');
 		}
 		$family{'birth'}->{'place'} = $2;
@@ -485,6 +490,7 @@ sub parse_obituary
 	# Date of death
 	if($text =~ /\bpassed away\b.*?\b(?:on\s+)?([A-Z]+ \d{1,2}, \d{4})/i) {
 		$family{death}->{date} = $1;
+		$family{death}->{datetime} = _extract_date($1);
 	}
 
 	# Age at death
@@ -502,7 +508,7 @@ sub parse_obituary
 			$family{death}->{date} = $2;
 		} elsif($place =~ /(.+)\son\s(.+)/) {
 			$place = $1;
-			if(my $dt = DateTime::Format::Text->parse_datetime($2)) {
+			if(my $dt = _extract_date($2)) {
 				$family{death}->{date} = $dt->ymd('/');
 			}
 		}
@@ -524,6 +530,49 @@ sub parse_obituary
 
 	return \%family;
 }
+
+sub _extract_date
+{
+	my $text = shift;
+	my $parser = DateTime::Format::Text->new();
+	my $dt;
+
+	eval { $dt = $parser->parse_datetime($text); };
+	return $dt if $dt && !$@;
+	return undef;
+}
+
+sub _extract_location {
+	my $place_text = shift;
+
+	my $geocoder = Geo::Coder::List->new()->push(Geo::Coder::Free->new());
+	my @locations = $geocoder->geocode(location => $place_text);	# Use array to improve caching
+
+	return unless scalar(@locations);
+
+	my $result = $locations[0];
+
+	if(ref($result)) {
+		return {
+			raw      => $place_text,
+			# city     => $result->{components}{city} || $result->{components}{town},
+			# region   => $result->{components}{state},
+			# country  => $result->{components}{country},
+			latitude      => $result->latitude(),
+			longitude      => $result->longitude()
+		};
+	}
+	return {
+		raw      => $place_text,
+		# city     => $result->{components}{city} || $result->{components}{town},
+		# region   => $result->{components}{state},
+		# country  => $result->{components}{country},
+		latitude      => $result->{'latitude'},
+		longitude    => $result->{'longitude'}
+	};
+}
+
+
 =head1 AUTHOR
 
 Nigel Horne, C<< <njh at nigelhorne.com> >>

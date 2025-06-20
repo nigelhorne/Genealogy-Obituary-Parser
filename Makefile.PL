@@ -16,7 +16,9 @@ WriteMakefile(
 	AUTHOR	=> 'Nigel Horne <njh@nigelhorne.com>', # Author information
 	LICENSE      => 'GPL',
 	PREREQ_PM    => {
-		'DateTime::Format::Text' => 0
+		'DateTime::Format::Text' => 0,
+		'Geo::Coder::Free' => 0,
+		'Geo::Coder::List' => 0
 	}, TEST_REQUIRES => {
 		'Test::DescribeMe' => 0,
 		'Test::Most' => 0,
