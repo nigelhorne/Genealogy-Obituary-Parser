@@ -162,7 +162,7 @@ cmp_deeply($foo,
 				}
 			 }
 	       ], 'funeral' => {
-			  'date' => 'Aug 6, 1955',
+			  'date' => 'April 19',
 			  'time' => '11am',
 			  'location' => 'St. Luke\'s United Church, Tantallon NS',
 		}

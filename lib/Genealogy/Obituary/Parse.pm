@@ -412,7 +412,7 @@ sub parse_obituary
 	}
 
 	# Extract the funeral information
-	if($text =~ /funeral service.*?at\s+([^\n]+)\s+on\s+([^\n]+)\s+at\s+([^\n]+)/i) {
+	if($text =~ /funeral service.*?at\s+([^\n]+?)\s+on\s+([^\n]+)\s+at\s+([^\n]+)/i) {
 		$family{funeral} = {
 			location => $1,
 			date	 => $2,
