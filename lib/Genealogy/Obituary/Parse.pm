@@ -54,18 +54,18 @@ sub parse_obituary
 		my %data;
 
 		my @patterns = (
-			[ qr/\bdaughters?\s+([^.,;]+)/i,      'children' ],
-			[ qr/\bsons?\s+([^.,;]+)/i,           'children' ],
-			[ qr/\bchildren\s+([^.,;]+)/i,        'children' ],
-			[ qr/\bgrandchildren\s+([^.;]+)/i,   'grandchildren' ],
-			[ qr/\bwife\s+([^.,;]+)/i,            'spouse' ],
-			[ qr/\bhusband\s+([^.,;]+)/i,         'spouse' ],
+			[ qr/\bdaughters?\s+([^.,;]+)/i,  'children' ],
+			[ qr/\bsons?\s+([^.,;]+)/i, 'children' ],
+			[ qr/\bchildren\s+([^.,;]+)/i, 'children' ],
+			[ qr/\bgrandchildren\s+([^.;]+)/i, 'grandchildren' ],
+			[ qr/\bwife\s+([^.,;]+)/i, 'spouse' ],
+			[ qr/\bhusband\s+([^.,;]+)/i, 'spouse' ],
 			[ qr/\bhis parents were\s+([^.,;]+)/i,'parents' ],
-			[ qr/\bhis father was\s+([^.,;]+)/i,  'parents' ],
-			[ qr/\bhis mother was\s+([^.,;]+)/i,  'parents' ],
-			[ qr/\bsister(?:s)?\s+([^.,;]+)/i,    'siblings' ],
-			[ qr/\bbrother(?:s)?\s+([^.,;]+)/i,   'siblings' ],
-			[ qr/\bsiblings\s+([^.,;]+)/i,       'siblings' ],
+			[ qr/\bhis father was\s+([^.,;]+)/i, 'parents' ],
+			[ qr/\bhis mother was\s+([^.,;]+)/i, 'parents' ],
+			[ qr/\bsister(?:s)?\s+([^.,;]+)/i, 'siblings' ],
+			[ qr/\bbrother(?:s)?\s+([^.,;]+)/i, 'siblings' ],
+			[ qr/\bsiblings\s+([^.,;]+)/i, 'siblings' ],
 		);
 
 		for my $p (@patterns) {
@@ -554,12 +554,12 @@ sub _extract_location {
 
 	if(ref($result)) {
 		return {
-			raw      => $place_text,
-			# city     => $result->{components}{city} || $result->{components}{town},
-			# region   => $result->{components}{state},
-			# country  => $result->{components}{country},
-			latitude      => $result->latitude(),
-			longitude      => $result->longitude()
+			raw => $place_text,
+			# city => $result->{components}{city} || $result->{components}{town},
+			# region => $result->{components}{state},
+			# country => $result->{components}{country},
+			latitude => $result->latitude(),
+			longitude => $result->longitude()
 		};
 	}
 	return {
