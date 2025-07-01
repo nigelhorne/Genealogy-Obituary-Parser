@@ -1,6 +1,9 @@
 ---
 name: Perl CI
 
+permissions:
+  contents: read
+
 on:
   push:
   pull_request:
