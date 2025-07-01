@@ -10,6 +10,7 @@ use Exporter 'import';
 
 our @EXPORT_OK = qw(parse_obituary);
 our $VERSION = '0.01';
+our $geocoder;
 
 # TODO:
 # use Lingua::EN::Tagger;
@@ -551,7 +552,7 @@ sub _extract_date
 sub _extract_location {
 	my $place_text = shift;
 
-	my $geocoder = Geo::Coder::List->new()->push(Geo::Coder::Free->new());
+	$geocoder ||= Geo::Coder::List->new()->push(Geo::Coder::Free->new());
 	my @locations = $geocoder->geocode(location => $place_text);	# Use array to improve caching
 
 	return unless scalar(@locations);
