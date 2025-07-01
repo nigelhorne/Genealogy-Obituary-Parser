@@ -9,7 +9,7 @@ use Geo::Coder::List;
 use Exporter 'import';
 
 our @EXPORT_OK = qw(parse_obituary);
-our $VERSION	= '0.01';
+our $VERSION = '0.01';
 
 # TODO:
 # use Lingua::EN::Tagger;
@@ -26,8 +26,8 @@ Genealogy::Obituary::Parse - Extract structured family relationships from obitua
   my $data = parse_obituary($text);
 
   # $data = {
-  #   spouse       => ['Paul'],
-  #   children     => ['Anna', 'Lucy'],
+  #   spouse   => ['Paul'],
+  #   children => ['Anna', 'Lucy'],
   #   grandchildren => ['Jake', 'Emma'],
   # };
 
@@ -412,7 +412,13 @@ sub parse_obituary
 	}
 
 	# Extract the funeral information
-	if($text =~ /funeral service.*?at\s+([^\n]+?)\s+on\s+([^\n]+)\s+at\s+([^\n]+)/i) {
+	if($text =~ /funeral service.*?at\s+(.+?),?\s+on\s+(.*?),?\s+at\s+(.+?)\./) {
+		$family{funeral} = {
+			location => $1,
+			date	 => $2,
+			time	 => $3,
+		};
+	} elsif($text =~ /funeral service.*?at\s+([^\n]+?)\s+on\s+([^\n]+)\s+at\s+([^\n]+)/i) {
 		$family{funeral} = {
 			location => $1,
 			date	 => $2,
@@ -563,12 +569,12 @@ sub _extract_location {
 		};
 	}
 	return {
-		raw      => $place_text,
-		# city     => $result->{components}{city} || $result->{components}{town},
-		# region   => $result->{components}{state},
-		# country  => $result->{components}{country},
-		latitude      => $result->{'latitude'},
-		longitude    => $result->{'longitude'}
+		raw    => $place_text,
+		# city   => $result->{components}{city} || $result->{components}{town},
+		# region => $result->{components}{state},
+		# country => $result->{components}{country},
+		latitude    => $result->{'latitude'},
+		longitude  => $result->{'longitude'}
 	};
 }
 

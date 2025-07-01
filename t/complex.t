@@ -124,59 +124,52 @@ cmp_deeply($foo,
 
 diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
 
-$str = <<'STR';
+subtest 'Jarvis' => sub {
+	$str = <<'STR';
 PETERS, Eric Jarvis - 81, Head of St. Margaret's Bay, passed away Monday, April 16, 2007, at home.  Born in Fredericton, N.B., he was a son of the late Rev. Ovid and Pearl (Boyd) Peters.  Eric retired from the Federal Department of Transportation as an Air Traffic Controller in 1982, moving to St. Margaret's Bay in 1985 and enjoyed the waters of the Bay, spending his time fishing, boating and swimming.  He was an avid barbershopper and most recently belonged to the Millstream Chorus in Bedford and also was a founding member of the Rail City Chorus in Moncton.  Surviving are his wife, Ruth; daughter, Anne (Malcolm) Maxwell and their son James, Prince George, BC; son, Boyd R. (Deborah) and their children Brian, Meredith and Patricia, Fredericton, NB, and brother, Ralph N. (Lorna), Saint John, NB. He was predeceased by his sister, Phyllis Huestis.  Funeral service will be held 11 a.m.  Thursday, April 19, in St. Luke's United Church, Tantallon, Rev. KevinLittle officiating.  A family committal service will be held a later date.  In lieu of flowers, donations can be made to St. Luke's United Church, Tantallon or Alzheimer Society of Nova Scotia; PETERS, ERIC J. - At his residence, after a long illness on Monday April 16th, 2007, Eric J. Peters, loving husband of Ruth Anne Shirley Peters, passed away.  A funeral service at St. Luke's United Church, Tantallon NS, on Thursday, April 19th, 2007, at 11am.  Leaving to mourn, two children, Anne and Boyd, grandchildren, and one brother Ralph of Saint John, NB).  He was the youngest of 3 children of Ovid Peters, a minister of the methodist church, and Pearl Boyd.  Eric worked as an air traffic controller.  He was born in Fredericton, York, New Brunswick on Jul 19, 1925 and married Ruth Howland, a registered nurse, (with whom he had 3 surviving children: Boyd R, Anne and James) on Aug 6, 1955 at Baptish Church, Main Street, Saint John, New Brunswick.
 STR
 
-$foo = parse_obituary($str);
-
-diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
-
-ok(isa($foo->{'death'}->{'datetime'}, 'DateTime'));
-delete $foo->{'death'}->{'datetime'};
-
-cmp_deeply($foo,
-	{
-		'parents' => {
-			'father' => { 'name' => 'Rev. Ovid' },
-			'mother' => { 'name' => 'Pearl Boyd' }
-		}, 'sisters' => [
-			  { 'name' => 'Phyllis Huestis' }
-		], 'children' => [
-			   { 'name' => 'Anne', 'sex' => 'F', spouse => { 'name' => 'Malcolm', 'sex' => 'M' } },	# FIXME: spouse should be 'Malcolm Maxwell'
-			   { 'name' => 'Boyd', 'sex' => 'M' },	# FIXME: should be Boyd R
-		], 'brothers' => [
-			   { 'status' => 'living', 'name' => 'Ralph N.' }
-		], 'death' => {
-			'place' => 'home',
-			'date' => 'April 16, 2007'
-		}, 'birth' => {
-			'place' => 'Fredericton',
-			'date' => 'Jul 19, 1925'
-		}, 'spouse' => [
-			 {
-				'name' => 'Ruth Howland',
-				'married' => {
-					'place' => 'Baptish Church',
-					'date' => 'Aug 6, 1955'
-				}
-			 }
-	       ], 'funeral' => {
-			  'date' => 'April 19',
-			  'time' => '11am',
-			  'location' => 'St. Luke\'s United Church, Tantallon NS',
-		}
-	}
-);
-
-# TODO
-if(0) {
-	diag(Data::Dumper->new([$foo])->Dump());
 	$foo = parse_obituary($str);
-	diag(Data::Dumper->new([$foo])->Dump());
-	$foo = parse_obituary2($str);
-	diag(Data::Dumper->new([$foo])->Dump());
-}
+
+	diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
+
+	ok(isa($foo->{'death'}->{'datetime'}, 'DateTime'));
+	delete $foo->{'death'}->{'datetime'};
+
+	cmp_deeply($foo,
+		{
+			'parents' => {
+				'father' => { 'name' => 'Rev. Ovid' },
+				'mother' => { 'name' => 'Pearl Boyd' }
+			}, 'sisters' => [
+				  { 'name' => 'Phyllis Huestis' }
+			], 'children' => [
+				   { 'name' => 'Anne', 'sex' => 'F', spouse => { 'name' => 'Malcolm', 'sex' => 'M' } },	# FIXME: spouse should be 'Malcolm Maxwell'
+				   { 'name' => 'Boyd', 'sex' => 'M' },	# FIXME: should be Boyd R
+			], 'brothers' => [
+				   { 'status' => 'living', 'name' => 'Ralph N.' }
+			], 'death' => {
+				'place' => 'home',
+				'date' => 'April 16, 2007'
+			}, 'birth' => {
+				'place' => 'Fredericton',
+				'date' => 'Jul 19, 1925'
+			}, 'spouse' => [
+				 {
+					'name' => 'Ruth Howland',
+					'married' => {
+						'place' => 'Baptish Church',
+						'date' => 'Aug 6, 1955'
+					}
+				 }
+		       ], 'funeral' => {
+				  'date' => 'Thursday, April 19th, 2007',
+				  'time' => '11am',
+				  'location' => 'St. Luke\'s United Church, Tantallon NS',
+			}
+		}
+	);
+};
 
 $str = <<'STR';
 From the Indianapolis Star, 25/4/2013:  "75, Indianapolis, died Apr.  21, 2013.  Services: 1 p.m.  Apr.  26 in Forest Lawn Funeral Home, Greenwood, with visitation from 11 a.m."; Obituary from Forest Lawn Funeral Home:  "Sharlene C. Cloud, 75, of Indianapolis, passed away April 21, 2013.  She was born May 21, 1937 in Noblesville, IN to Virgil and Josephine (Beaver) Day.  She is survived by her mother; two sons, Christopher and Thomas Cloud;; daughter, Marsha Cloud; three sisters, Mary Kirby, Sharon Lowery, and Doris Lyng; two grandchildren, Allison and Jamie Cloud.  Funeral Services will be Friday at 1:00 pm at Forest Lawn Funeral Home, Greenwood, IN, with visitation from 11:00 am till time of service Friday at the funeral home."
