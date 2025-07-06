@@ -484,6 +484,10 @@ sub parse_obituary
 				$family{'birth'}->{date} = $dt->ymd('/');
 			}
 		};
+		# TODO
+		# if($verbose && $@) {
+			# Carp::carp($@);
+		# }
 		if($mother =~ /(.+)\s+\((.+)\)\s+(.+)/) {
 			$mother = "$1 $2";
 		}
@@ -572,7 +576,7 @@ sub _extract_location {
 		};
 	}
 	return {
-		raw    => $place_text,
+		raw  => $place_text,
 		# city   => $result->{components}{city} || $result->{components}{town},
 		# region => $result->{components}{state},
 		# country => $result->{components}{country},
