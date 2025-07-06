@@ -476,12 +476,14 @@ sub parse_obituary
 		}
 		$family{'birth'}->{'place'} =~ s/\s+$//;
 	} elsif($text =~ /S?he was born (.+)\sin ([a-z,\.\s]+)\s+to\s+(.+?)\sand\s(.+?)\./i) {
-		if(my $dt = _extract_date($1)) {
-			$family{'birth'}->{date} = $dt->ymd('/');
-		}
 		$family{'birth'}->{'place'} = $2;
 		my $father = $3;
 		my $mother = $4;
+		eval {
+			if(my $dt = DateTime::Format::Text->parse_datetime($1)) {
+				$family{'birth'}->{date} = $dt->ymd('/');
+			}
+		};
 		if($mother =~ /(.+)\s+\((.+)\)\s+(.+)/) {
 			$mother = "$1 $2";
 		}
