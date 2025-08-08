@@ -10,9 +10,9 @@ if($^O eq 'darwin') {
 }
 
 WriteMakefile(
-	NAME         => 'Genealogy::Obituary::Parse',
-	ABSTRACT_FROM	=> 'lib/Genealogy/Obituary/Parse.pm',
-	VERSION_FROM => 'lib/Genealogy/Obituary/Parse.pm',
+	NAME         => 'Genealogy::Obituary::Parser',
+	ABSTRACT_FROM	=> 'lib/Genealogy/Obituary/Parser.pm',
+	VERSION_FROM => 'lib/Genealogy/Obituary/Parser.pm',
 	AUTHOR	=> 'Nigel Horne <njh@nigelhorne.com>', # Author information
 	LICENSE      => 'GPL',
 	PREREQ_PM    => {
@@ -25,6 +25,6 @@ WriteMakefile(
 		'Test::Needs' => 0
 	}, dist => $dist,
 	clean	 => {
-		FILES => 'Genealogy-Obituary-Parse-*',
+		FILES => 'Genealogy-Obituary-Parser-*',
 	}
 );

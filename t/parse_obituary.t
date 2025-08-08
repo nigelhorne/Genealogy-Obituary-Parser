@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::Most;
-use Genealogy::Obituary::Parse qw(parse_obituary);
+use Genealogy::Obituary::Parser qw(parse_obituary);
 
 my $text = <<'END';
 He is survived by his wife Mary, sons John and David, and grandchildren Sophie, Liam, and Ava.

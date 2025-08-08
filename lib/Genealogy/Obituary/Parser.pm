@@ -1,4 +1,4 @@
-package Genealogy::Obituary::Parse;
+package Genealogy::Obituary::Parser;
 
 use strict;
 use warnings;
@@ -17,7 +17,7 @@ our $geocoder;
 
 =head1 NAME
 
-Genealogy::Obituary::Parse - Extract structured family relationships from obituary text
+Genealogy::Obituary::Parser - Extract structured family relationships from obituary text
 
 =head1 SYNOPSIS
 
@@ -185,11 +185,17 @@ sub parse_obituary
 		$family{children} = extract_people_section($children_text);
 	} elsif($text =~ /sons,?\s+([a-z]+)\s+and\s+([a-z]+)/i) {
 		my @children;
+		my @grandchildren;
+
 		push @children, { name => $1, sex => 'M' }, { name => $2, sex => 'M' };
-		if($text =~ /daughter,?\s([a-z]+)/i) {
+		if($text =~ /\bdaughter,?\s([a-z]+)/i) {
 			push @children, { 'name' => $1, 'sex' => 'F' }
 		}
+		if($text =~ /\bgranddaughter,?\s([a-z]+)/i) {
+			push @grandchildren, { 'name' => $1, 'sex' => 'F' };
+		}
 		$family{children} = \@children if @children;
+		$family{grandchildren} = \@grandchildren if @grandchildren;
 	} else {
 		my @children;
 
@@ -285,7 +291,7 @@ sub parse_obituary
 		}
 		if(scalar(@grandchildren)) {
 			$family{'grandchildren'} = \@grandchildren;
-		} else {
+		} elsif($text =~ /grandm\w+\s/) {
 			my $t = $text;
 			$t =~ s/.+(grandm\w+\s+.+?\sand\s[\w\.;,]+).+/$1/;
 			$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($t =~ /grandm\w+\sto\s+([^\.;]+)/i)[0] || '' ];

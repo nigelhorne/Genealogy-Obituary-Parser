@@ -3,7 +3,7 @@ use warnings;
 
 use Data::Dumper;
 use Test::Most;
-use Genealogy::Obituary::Parse qw(parse_obituary);
+use Genealogy::Obituary::Parser qw(parse_obituary);
 
 my $text = 'She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.';
 

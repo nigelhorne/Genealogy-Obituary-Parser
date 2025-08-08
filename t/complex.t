@@ -3,7 +3,7 @@ use warnings;
 
 use Data::Dumper;
 use Test::Most;
-use Genealogy::Obituary::Parse qw(parse_obituary);
+use Genealogy::Obituary::Parser qw(parse_obituary);
 
 my $str = <<'STR';
 Helen Mae (McBeath) Girvan, age 89 years passed away at the Kenneth E. Spencer Memorial Home on Friday December 12th, 2008.
@@ -238,6 +238,19 @@ cmp_deeply($foo,
 		]
 	}
 );
+
+# TODOs:
+
+$str = <<'STR';
+From The Indianapolis Star on Aug. 10, 2003
+
+http://www.legacy.com/obituaries/indystar/obituary.aspx?n=shirley-e-cloud-myers&pid=143444897
+
+Shirley E. Cloud Myers, 60, Indianapolis, died August 8, 2003. She was in customer service for Midwest Frozen Foods for 20 years, she also worked at Meijer's. Memorial Contributions may be made to the or Vistacare Hospice Foundation. Services will be held at 11:30 a.m. Tue., August 12 at Conkle Funeral Home, Speedway, with calling from 3 to 8 p.m. Mon., August 11. Burial: Floral Park Cemetery. She was preceded in death by her husband Charles Myers. Survivors include her sons, Michael and Douglas Cloud; and her granddaughter Lindsey Cloud
+STR
+
+$foo = parse_obituary($str);
+diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
 
 $str = <<'STR';
 Fort Wayne Journal Gazette, 20 February 1977:  Word has been received of the death of Charles F. Harris, 72, of 2717 Lynn Ave.  He died at the Fort Myers (Fla.) Community Hospital after a two week illness.  Mr. Harris was a native of Fort Wayne, and had lived here most of his life.  He retired from International Harvester Co.  in 1965 after 31 years' service.  He is survived by his wife, Ruth; two sons, Jack R., Grabill and Ralph E., Yoder; one daughter, Mrs. Arlene J. Gevara, Fort Wayne and one sister, Mrs. Alice Duncan, Englewood, Fla.  Services will be at 10 a.m.  Wednesday at D. O. McComb & sons Lakeside Park Funeral Home, with calling from 7 to 9 p.m.  Tuesday.  Burial will be in Prairie Grove Cemetery
