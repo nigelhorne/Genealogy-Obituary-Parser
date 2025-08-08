@@ -48,6 +48,8 @@ for use in genealogical applications.
 
 =head2 parse_obituary($text)
 
+Takes a string, or a ref to a string.
+
 Returns a hashref of extracted relatives.
 
 =cut
@@ -55,6 +57,10 @@ Returns a hashref of extracted relatives.
 sub parse_obituary
 {
 	my $text = shift;
+
+	if(ref($text) eq 'SCALAR') {
+		$text = ${$text};
+	}
 
 	# Quick scan to get started
 	sub parse_obituary_quick {

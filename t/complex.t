@@ -16,7 +16,7 @@ Besides her husband she is predeceased by her sisters Dorothy Knowles, and Audre
 By personal request there will be no visitation at the funeral home
 STR
 
-my $foo = parse_obituary($str);
+my $foo = parse_obituary(\$str);
 
 cmp_deeply($foo,
 	{
@@ -162,7 +162,7 @@ STR
 						'date' => 'Aug 6, 1955'
 					}
 				 }
-		       ], 'funeral' => {
+			   ], 'funeral' => {
 				  'date' => 'Thursday, April 19th, 2007',
 				  'time' => '11am',
 				  'location' => 'St. Luke\'s United Church, Tantallon NS',
@@ -191,18 +191,18 @@ cmp_deeply($foo,
 	   'birth' => {
 			'date' => '1937/05/21',
 			'place' => 'Noblesville, IN'
-		      },
+			  },
 	   'parents' => {
 			  'father' => { 'name' => 'Virgil' },
 			  'mother' => {
 					'name' => 'Josephine Beaver',
 					'status' => 'living'
-				      }
+					  }
 			},
 	   'death' => {
 			'date' => 'April 21, 2013',
 			'age' => '75'
-		      },
+			  },
 	   'funeral' => {
 			  'location' => 'Forest Lawn Funeral Home, Greenwood, IN',
 			  'time' => '1:00 pm'
@@ -251,6 +251,26 @@ STR
 
 $foo = parse_obituary($str);
 diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
+
+cmp_deeply($foo,
+	 {
+		'grandchildren' => [
+			{
+				'name' => 'Lindsey',
+				'sex' => 'F'
+			}
+		  ], 'children' => [
+			{
+				'sex' => 'M',
+				'name' => 'Michael'
+			},
+			{
+				'name' => 'Douglas',
+				'sex' => 'M'
+			}
+		]
+	}
+);
 
 $str = <<'STR';
 Fort Wayne Journal Gazette, 20 February 1977:  Word has been received of the death of Charles F. Harris, 72, of 2717 Lynn Ave.  He died at the Fort Myers (Fla.) Community Hospital after a two week illness.  Mr. Harris was a native of Fort Wayne, and had lived here most of his life.  He retired from International Harvester Co.  in 1965 after 31 years' service.  He is survived by his wife, Ruth; two sons, Jack R., Grabill and Ralph E., Yoder; one daughter, Mrs. Arlene J. Gevara, Fort Wayne and one sister, Mrs. Alice Duncan, Englewood, Fla.  Services will be at 10 a.m.  Wednesday at D. O. McComb & sons Lakeside Park Funeral Home, with calling from 7 to 9 p.m.  Tuesday.  Burial will be in Prairie Grove Cemetery
