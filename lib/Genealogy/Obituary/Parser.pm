@@ -9,7 +9,6 @@ use Geo::Coder::List;
 use Exporter 'import';
 
 our @EXPORT_OK = qw(parse_obituary);
-our $VERSION = '0.01';
 our $geocoder;
 
 # TODO:
@@ -18,6 +17,14 @@ our $geocoder;
 =head1 NAME
 
 Genealogy::Obituary::Parser - Extract structured family relationships from obituary text
+
+=head1 VERSION
+
+Version 0.02
+
+=cut
+
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 

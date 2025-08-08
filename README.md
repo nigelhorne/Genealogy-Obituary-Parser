@@ -1,19 +1,23 @@
-![Perl CI](https://github.com/nigelhorne/Genealogy-Obituary-Parse/actions/workflows/test.yml/badge.svg)
+![Perl CI](https://github.com/nigelhorne/Genealogy-Obituary-Parser/actions/workflows/test.yml/badge.svg)
 
 # NAME
 
-Genealogy::Obituary::Parse - Extract structured family relationships from obituary text
+Genealogy::Obituary::Parser - Extract structured family relationships from obituary text
+
+# VERSION
+
+Version 0.02
 
 # SYNOPSIS
 
     use Genealogy::Obituary::Parse qw(parse_obituary);
 
-    my $text = "She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.";
+    my $text = 'She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.';
     my $data = parse_obituary($text);
 
     # $data = {
-    #   spouse       => ['Paul'],
-    #   children     => ['Anna', 'Lucy'],
+    #   spouse   => ['Paul'],
+    #   children => ['Anna', 'Lucy'],
     #   grandchildren => ['Jake', 'Emma'],
     # };
 
