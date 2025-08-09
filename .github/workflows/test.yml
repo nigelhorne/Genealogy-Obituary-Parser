@@ -25,7 +25,9 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-
+      - name: Install Ubuntu Packages
+        run: sudo apt-get install libdb-dev
+        if: matrix.os == 'ubuntu-latest'
       - name: Install dependencies
         run: |
           cpanm --quiet --notest ExtUtils::MakeMaker
