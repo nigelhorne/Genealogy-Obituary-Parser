@@ -196,7 +196,7 @@ sub parse_obituary
 		my $children_text = $1;
 		$children_text =~ s/, grandmother.+//;
 		$family{children} = extract_people_section($children_text);
-	} elsif($text =~ /sons,?\s+([a-z]+)\s+and\s+([a-z]+)/i) {
+	} elsif($text =~ /sons,?\s*([a-z]+)\s+and\s+([a-z]+)/i) {
 		my @children;
 		my @grandchildren;
 

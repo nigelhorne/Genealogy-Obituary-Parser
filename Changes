@@ -2,6 +2,7 @@ Revision history for Genealogy::Obituary::Parser
 
 0.03
 	Allow a ref to the string to be passed in
+	Support lack of space after "sons,"
 
 0.02	Fri Aug  8 09:40:16 EDT 2025
 	Return DateTime and locations where possible

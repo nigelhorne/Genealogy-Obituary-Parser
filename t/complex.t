@@ -246,7 +246,7 @@ From The Indianapolis Star on Aug. 10, 2003
 
 http://www.legacy.com/obituaries/indystar/obituary.aspx?n=shirley-e-cloud-myers&pid=143444897
 
-Shirley E. Cloud Myers, 60, Indianapolis, died August 8, 2003. She was in customer service for Midwest Frozen Foods for 20 years, she also worked at Meijer's. Memorial Contributions may be made to the or Vistacare Hospice Foundation. Services will be held at 11:30 a.m. Tue., August 12 at Conkle Funeral Home, Speedway, with calling from 3 to 8 p.m. Mon., August 11. Burial: Floral Park Cemetery. She was preceded in death by her husband Charles Myers. Survivors include her sons, Michael and Douglas Cloud; and her granddaughter Lindsey Cloud
+Shirley E. Cloud Myers, 60, Indianapolis, died August 8, 2003. She was in customer service for Midwest Frozen Foods for 20 years, she also worked at Meijer's. Memorial Contributions may be made to the or Vistacare Hospice Foundation. Services will be held at 11:30 a.m. Tue., August 12 at Conkle Funeral Home, Speedway, with calling from 3 to 8 p.m. Mon., August 11. Burial: Floral Park Cemetery. She was preceded in death by her husband Charles Myers. Survivors include her sons,Michael and Douglas Cloud; and her granddaughter Lindsey Cloud
 STR
 
 $foo = parse_obituary($str);
