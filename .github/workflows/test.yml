@@ -26,7 +26,10 @@ jobs:
         with:
           perl-version: ${{ matrix.perl-version }}
       - name: Install Ubuntu Packages
-        run: sudo apt-get update && sudo apt install libdb-dev libio-aio-perl
+        run: |
+          sudo apt-get update
+          sudo apt-get -y upgrade
+          sudo apt install libdb-dev libio-aio-perl
         if: runner.os == 'Linux'
       - name: Install dependencies
         run: |
