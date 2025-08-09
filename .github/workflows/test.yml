@@ -26,11 +26,11 @@ jobs:
         with:
           perl-version: ${{ matrix.perl-version }}
       - name: Install Ubuntu Packages
-        run: sudo apt-get install libdb-dev
+        run: sudo apt-get update && sudo apt install libdb-dev libio-aio-perl
         if: runner.os == 'Linux'
       - name: Install dependencies
         run: |
-          cpanm --quiet --notest ExtUtils::MakeMaker IO::AIO
+          cpanm --quiet --notest ExtUtils::MakeMake
           # cpanm --installdeps --quiet --notest . || cat $HOME/.cpanm/work/*/build.log
           cpanm --installdeps --notest . || cat $HOME/.cpanm/work/*/build.log
         env:
