@@ -27,7 +27,7 @@ jobs:
           perl-version: ${{ matrix.perl-version }}
       - name: Install Ubuntu Packages
         run: sudo apt-get install libdb-dev
-        if: matrix.os == 'ubuntu-latest'
+        if: runner.os == 'Linux'
       - name: Install dependencies
         run: |
           cpanm --quiet --notest ExtUtils::MakeMaker
