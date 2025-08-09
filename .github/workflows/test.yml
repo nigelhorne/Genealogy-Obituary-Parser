@@ -31,11 +31,19 @@ jobs:
           cpanm --quiet --notest ExtUtils::MakeMaker
           # cpanm --installdeps --quiet --notest . || cat $HOME/.cpanm/work/*/build.log
           cpanm --installdeps --notest . || cat $HOME/.cpanm/work/*/build.log
+        env:
+          AUTOMATED_TESTING: 1
+          NO_NETWORK_TESTING: 1
+          NONINTERACTIVE_TESTING: 1
 
       - name: Run tests
         run: |
           perl Makefile.PL
           make test
+        env:
+          AUTOMATED_TESTING: 1
+          NO_NETWORK_TESTING: 1
+          NONINTERACTIVE_TESTING: 1
 
       - name: Show cpanm build log on failure (Windows)
         if: runner.os == 'Windows' && failure()
