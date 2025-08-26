@@ -35,7 +35,7 @@ jobs:
         run: |
           cpanm --quiet --notest ExtUtils::MakeMaker
           # cpanm --installdeps --quiet --notest . || cat $HOME/.cpanm/work/*/build.log
-          cpanm --installdeps --notest . || cat $HOME/.cpanm/work/*/build.log
+          cpanm --installdeps --verbose --notest . || cat $HOME/.cpanm/work/*/build.log
         env:
           AUTOMATED_TESTING: 1
           NO_NETWORK_TESTING: 1
