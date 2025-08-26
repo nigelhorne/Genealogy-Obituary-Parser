@@ -4,9 +4,12 @@ use strict;
 use warnings;
 
 use DateTime::Format::Text;
+use Exporter 'import';
 use Geo::Coder::Free;
 use Geo::Coder::List;
-use Exporter 'import';
+use Params::Get 0.13;
+use Return::Set 0.02;
+use Params::Validate::Strict;
 
 our @EXPORT_OK = qw(parse_obituary);
 our $geocoder;
@@ -56,11 +59,41 @@ with each family member's data organized into distinct categories such as childr
 
 Takes a string, or a ref to a string.
 
+=head3 API SPECIFICATION
+
+=head4 INPUT
+
+  {
+    'text' => {
+      'type' => 'string',
+      'min' => 1,
+      'max' => 5000
+    }
+  }
+
+=head4 OUTPUT
+
+  {
+    type => 'hashref',
+    'min' => 1,
+    'max' => 10
+  }
+
 =cut
 
 sub parse_obituary
 {
-	my $text = shift;
+        my $params = Params::Validate::Strict::validate_strict({
+		args => Params::Get::get_params('text', \@_),
+		schema => {
+			'text' => {
+				'type' => 'string',
+				'min' => 1,
+				'max' => 5000
+			}
+		}
+	});
+	my $text = $params->{'text'};
 
 	if(ref($text) eq 'SCALAR') {
 		$text = ${$text};
@@ -130,9 +163,8 @@ sub parse_obituary
 			# Match "Carol Girvan of Dartmouth, NS"
 			elsif ($entry =~ /^(.+?)\s+of\s+(.+)$/) {
 				$name = $1; $location = $2;
-			}
-			# Match names only (e.g. for siblings)
-			else {
+			} else {
+				# Match names only (e.g. for siblings)
 				$name = $entry;
 			}
 
@@ -521,6 +553,13 @@ sub parse_obituary
 		if($text =~ /survived by (his|her) (father|mother)[\s,;]/i) {
 			$family{parents}->{$2}->{'status'} = 'living';
 		}
+	} elsif($text =~ /[^\b]S?he was born\s*(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})[,\s]+(?:in\s+)([^,]+)?/i) {
+		if(my $dt = _extract_date($1)) {
+			$family{'birth'}->{date} = $dt->ymd('/');
+		}
+		if($2) {
+			$family{'birth'}->{'location'} = $2;
+		}
 	}
 
 	# Date of death
@@ -537,7 +576,7 @@ sub parse_obituary
 	}
 
 	# Place of death
-	if($text =~ /\bpassed away\b([a-z0-9\s,]+)\sat\s+(.+?)\./i) {
+	if($text =~ /\b(?:passed away|died)\b([a-z0-9\s,]+)\sat\s+(.+?)\./i) {
 		my $place = $2;
 		if($place =~ /(.+)\s+on\s+([A-Z]+ \d{1,2}, \d{4})/i) {
 			$place = $1;
@@ -548,6 +587,9 @@ sub parse_obituary
 				$family{death}->{date} = $dt->ymd('/');
 			}
 		}
+		$place =~ s/^\bthe residence,\s//;
+		$place =~ s/\bafter a.*$//;
+		$place =~ s/,\s+$//;
 		$family{death}->{place} = $place;
 	}
 
@@ -564,7 +606,7 @@ sub parse_obituary
 		}
 	}
 
-	return \%family;
+	return Return::Set::set_return(\%family, { type => 'hashref', 'min' => 1, 'max' => 10 });
 }
 
 sub _extract_date
@@ -599,7 +641,7 @@ sub _extract_location {
 		};
 	}
 	return {
-		raw  => $place_text,
+		raw => $place_text,
 		# city   => $result->{components}{city} || $result->{components}{town},
 		# region => $result->{components}{state},
 		# country => $result->{components}{country},
