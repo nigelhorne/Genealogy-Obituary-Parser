@@ -1,5 +1,5 @@
 ---
-name: Perl CI
+name: Linux test
 
 permissions:
   contents: read
