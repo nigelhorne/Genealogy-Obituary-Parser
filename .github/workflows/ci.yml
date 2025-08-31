@@ -34,7 +34,7 @@ jobs:
       # Install module dependencies (from cpanfile or manually)
       - name: Install dependencies
         run: |
-          cpanm --build-timeout=3600 --notest --installdeps .
+          cpanm --installdeps --verbose --notest . || cat $HOME/.cpanm/work/*/build.log
           cpanm -iqn ExtUtils::MakeMaker Test::Most Devel::Cover Devel::Cover::Report::Html
 
       # Optional: run Perl::Critic static checks
