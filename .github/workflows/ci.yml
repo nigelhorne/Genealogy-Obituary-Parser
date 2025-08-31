@@ -31,6 +31,14 @@ jobs:
           # install cpanminus
           # cpanm-options: --notest
 
+      # Packages needed for Geo::Coder::Free
+      - name: Install Ubuntu Packages
+        run: |
+          sudo apt-get update
+          sudo apt-get -y upgrade
+          sudo apt install libdb-dev libio-aio-perl
+        if: runner.os == 'Linux'
+
       # Install module dependencies (from cpanfile or manually)
       - name: Install dependencies
         run: |
