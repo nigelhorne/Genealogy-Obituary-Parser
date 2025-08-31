@@ -65,13 +65,19 @@ Takes a string, or a ref to a string.
 
   {
     'text' => {
-      'type' => 'string',
+      'type' => 'string',	# or stringref
       'min' => 1,
       'max' => 5000
     }
   }
 
 =head4 OUTPUT
+
+=over 4
+
+=item * No matches: undef
+
+=back
 
   {
     type => 'hashref',
@@ -546,6 +552,9 @@ sub parse_obituary
 		if($mother =~ /(.+)\s+\((.+)\)\s+(.+)/) {
 			$mother = "$1 $2";
 		}
+		if($father =~ /(.+?)\.\s\s/) {
+			$father = $1;
+		}
 		$family{parents} = {
 			father => { name => $father },
 			mother => { name => $mother }
@@ -605,6 +614,8 @@ sub parse_obituary
 			}
 		}
 	}
+
+	return if(!scalar keys(%family));
 
 	return Return::Set::set_return(\%family, { type => 'hashref', 'min' => 1, 'max' => 10 });
 }
