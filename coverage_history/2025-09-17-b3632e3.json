@@ -1,0 +1,319 @@
+{
+   "runs" : [
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130287.7564,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130287.75603,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130287.93031,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130287.93007,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130288.1019,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130288.10153,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130288.27309,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130288.27273,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130288.44204,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130288.44181,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130288.61277,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130288.6125,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130288.78442,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130288.78417,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130288.95446,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130288.95423,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130289.14022,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130289.13206,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130295.18656,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130289.34544,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130289.49378,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1758130289.49369,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130290.3205,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/00-load.t",
+         "start" : 1758130290.3191,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130291.34927,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/30-basics.t",
+         "start" : 1758130291.33847,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130291.79296,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/comment-spelling.t",
+         "start" : 1758130291.79272,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130292.70094,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/complex.t",
+         "start" : 1758130292.60528,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130293.16484,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/eof.t",
+         "start" : 1758130293.16459,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130293.40375,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/eol.t",
+         "start" : 1758130293.40347,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130294.22875,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/parse_obituary.t",
+         "start" : 1758130294.21609,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130294.6662,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/pod-cm.t",
+         "start" : 1758130294.66598,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130294.90548,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/pod-synopsis.t",
+         "start" : 1758130294.90526,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Extract structured family relationships from obituary text",
+         "dir" : "/home/runner/work/Genealogy-Obituary-Parser/Genealogy-Obituary-Parser",
+         "finish" : 1758130295.14584,
+         "name" : "Genealogy-Obituary-Parser",
+         "perl" : "5.40.3",
+         "run" : "t/pod.t",
+         "start" : 1758130295.14555,
+         "version" : "0.02"
+      }
+   ],
+   "summary" : {
+      "Total" : {
+         "branch" : {
+            "covered" : 162,
+            "error" : 60,
+            "percentage" : 72.972972972973,
+            "total" : 222,
+            "uncoverable" : 0
+         },
+         "condition" : {
+            "covered" : 28,
+            "error" : 22,
+            "percentage" : 56,
+            "total" : 50,
+            "uncoverable" : 0
+         },
+         "pod" : {
+            "covered" : 1,
+            "error" : 3,
+            "percentage" : 25,
+            "total" : 4
+         },
+         "statement" : {
+            "covered" : 274,
+            "error" : 83,
+            "percentage" : 76.750700280112,
+            "total" : 357
+         },
+         "subroutine" : {
+            "covered" : 14,
+            "error" : 1,
+            "percentage" : 93.3333333333333,
+            "total" : 15
+         },
+         "total" : {
+            "covered" : 479,
+            "error" : 169,
+            "percentage" : 73.9197530864197,
+            "total" : 648,
+            "uncoverable" : 0
+         }
+      },
+      "blib/lib/Genealogy/Obituary/Parser.pm" : {
+         "branch" : {
+            "covered" : 162,
+            "error" : 60,
+            "percentage" : 72.972972972973,
+            "total" : 222,
+            "uncoverable" : 0
+         },
+         "condition" : {
+            "covered" : 28,
+            "error" : 22,
+            "percentage" : 56,
+            "total" : 50,
+            "uncoverable" : 0
+         },
+         "pod" : {
+            "covered" : 1,
+            "error" : 3,
+            "percentage" : 25,
+            "total" : 4
+         },
+         "statement" : {
+            "covered" : 274,
+            "error" : 83,
+            "percentage" : 76.750700280112,
+            "total" : 357
+         },
+         "subroutine" : {
+            "covered" : 14,
+            "error" : 1,
+            "percentage" : 93.3333333333333,
+            "total" : 15
+         },
+         "total" : {
+            "covered" : 479,
+            "error" : 169,
+            "percentage" : 73.9197530864197,
+            "total" : 648,
+            "uncoverable" : 0
+         }
+      }
+   }
+}
