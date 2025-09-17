@@ -473,6 +473,44 @@ sub parse_obituary
 					{ 'name' => $2 }
 			}
 		}
+
+		if(!exists($family{'brothers'})) {
+			if($text =~ /\sbrothers,\s*(.*?)[;\.]/s) {
+				my $brothers_text = $1;
+				if($brothers_text =~ /, all of (.+)$/) {
+					my $location = $1;
+					while($brothers_text =~ /([\w. ]+?),\s/g) {
+						my $son = $1;
+						if($son =~ /(\w+)\s+and\s+(\w+)/) {
+							push @{$family{brothers}}, {
+								name => $1,
+								location => $location,
+								sex => 'M',
+							}, {
+								name => $2,
+								location => $location,
+								sex => 'M',
+							};
+							last;
+						} else {
+							push @{$family{brothers}}, {
+								name => $son,
+								location => $location,
+								sex => 'M',
+							};
+						}
+					}
+				} else {
+					while($brothers_text =~ /([\w. ]+?),\s*([\w. ]+?)(?:\s+and|\z)/g) {
+						push @{$family{brothers}}, {
+							name => $1,
+							location => $2,
+							sex => 'M',
+						};
+					}
+				}
+			}
+		}
 	}
 
 	# Detect nieces/nephews
