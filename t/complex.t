@@ -261,14 +261,15 @@ cmp_deeply($foo,
 			}
 		  ], 'children' => [
 			{
-				'sex' => 'M',
-				'name' => 'Michael'
-			},
-			{
+				'name' => 'Michael',
+				'sex' => 'M'
+			}, {
 				'name' => 'Douglas',
 				'sex' => 'M'
 			}
-		]
+		], 'funeral' => {
+			'location' => 'Conkle Funeral Home, Speedway'
+		}
 	}
 );
 

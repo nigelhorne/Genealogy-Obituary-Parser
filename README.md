@@ -43,13 +43,15 @@ Takes a string, or a ref to a string.
 
     {
       'text' => {
-        'type' => 'string',
+        'type' => 'string',       # or stringref
         'min' => 1,
         'max' => 5000
       }
     }
 
 #### OUTPUT
+
+- No matches: undef
 
     {
       type => 'hashref',
@@ -60,6 +62,10 @@ Takes a string, or a ref to a string.
 # AUTHOR
 
 Nigel Horne, `<njh at nigelhorne.com>`
+
+# SEE ALSO
+
+Test coverage report: [https://nigelhorne.github.io/Genealogy-Obituary-Parser/coverage/](https://nigelhorne.github.io/Genealogy-Obituary-Parser/coverage/)
 
 # SUPPORT
 

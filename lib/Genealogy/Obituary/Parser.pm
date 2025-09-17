@@ -426,6 +426,7 @@ sub parse_obituary
 					if($sister =~ /Mrs\.\s(.+?),\s(.+)/) {
 						my $name = $1;
 						my $location = $2;
+						$location =~ s/,$//;
 						if($name =~ /(\w+)\s+(\w+)/) {
 							push @{$family{sisters}}, {
 								name => $1,
@@ -609,6 +610,8 @@ sub parse_obituary
 			location => $2
 		};
 	} elsif($text =~ /funeral services.+\sat\s(.+),\swith\s/i) {
+		$family{funeral} = { location => $1 }
+	} elsif($text =~ /services.+\sat\s(.+),\swith\s/i) {
 		$family{funeral} = { location => $1 }
 	}
 
