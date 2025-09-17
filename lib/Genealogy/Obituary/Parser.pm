@@ -299,6 +299,23 @@ sub parse_obituary
 				sex => 'F',
 				spouse => { 'name' => $2, sex => 'M' }
 			};
+		} elsif($text =~ /one daughter,\s*(.+?),\s*(.+?);/) {
+			my $name = $1;
+			my $location = $2;
+			if($name =~ /(\w+)\s+(\w+)/) {
+				push @children, {
+					name => $1,
+					location => $location,
+					sex => 'F',
+					spouse => { name => $2, sex => 'M' }
+				};
+			} else {
+				push @children, {
+					name => $1,
+					location => $location,
+					sex => 'F',
+				};
+			}
 		}
 		$family{children} = \@children if @children;
 
