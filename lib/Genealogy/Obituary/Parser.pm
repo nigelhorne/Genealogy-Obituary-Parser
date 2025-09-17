@@ -401,9 +401,7 @@ sub parse_obituary
 		$sisters_text =~ s/^,\s+//;
 		$family{sisters} = extract_people_section($sisters_text);
 	} else {
-		my @siblings;
-
-		while ($text =~ /\bsister[,\s]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z.]+)*)(?:,\s*([A-Z][a-z]+))?/g) {
+		while($text =~ /\bsister[,\s]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z.]+)*)(?:,\s*([A-Z][a-z]+))?/g) {
 			my $name = $1;
 			$family{'sisters'} ||= [];
 			if($name eq 'Mrs') {
@@ -418,6 +416,37 @@ sub parse_obituary
 					name => $name,
 					status => ($text =~ /\bpredeceased by.*?$name/i) ? 'deceased' : 'living',
 				};
+			}
+		}
+
+		if(!exists($family{'sisters'})) {
+			if($text =~ /\stwo\ssisters,\s*(.*?)\sand\s(.*?)[;:]/s) {
+				my($first, $second) = ($1, $2);
+				foreach my $sister($first, $second) {
+					if($sister =~ /Mrs\.\s(.+?),\s(.+)/) {
+						my $name = $1;
+						my $location = $2;
+						if($name =~ /(\w+)\s+(\w+)/) {
+							push @{$family{sisters}}, {
+								name => $1,
+								location => $location,
+								sex => 'F',
+								spouse => { 'name' => $2, 'sex' => 'M' }
+							};
+						} else {
+							push @{$family{sisters}}, {
+								name => $name,
+								location => $location,
+								sex => 'F',
+							};
+						}
+					} else {
+						push @{$family{sisters}}, {
+							name => $sister,
+							sex => 'F',
+						};
+					}
+				}
 			}
 		}
 	}
