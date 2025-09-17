@@ -259,12 +259,37 @@ sub parse_obituary
 
 		if($text =~ /\ssons,\s*(.*?);/s) {
 			my $sons_text = $1;
-			while($sons_text =~ /([\w. ]+?),\s*([\w. ]+?)(?:\s+and|\z)/g) {
-				push @children, {
-					name => $1,
-					location => $2,
-					sex => 'M',
-				};
+			if($sons_text =~ /, all of (.+)$/) {
+				my $location = $1;
+				while($sons_text =~ /([\w. ]+?),\s/g) {
+					my $son = $1;
+					if($son =~ /(\w+)\s+and\s+(\w+)/) {
+						push @children, {
+							name => $1,
+							location => $location,
+							sex => 'M',
+						}, {
+							name => $2,
+							location => $location,
+							sex => 'M',
+						};
+						last;
+					} else {
+						push @children, {
+							name => $son,
+							location => $location,
+							sex => 'M',
+						};
+					}
+				}
+			} else {
+				while($sons_text =~ /([\w. ]+?),\s*([\w. ]+?)(?:\s+and|\z)/g) {
+					push @children, {
+						name => $1,
+						location => $2,
+						sex => 'M',
+					};
+				}
 			}
 		}
 		if($text =~ /\sdaughters?,\s*Mrs\.\s+(.+?)\s+(\w+),\s+([^;]+)\sand/) {
@@ -653,11 +678,11 @@ sub _extract_location {
 	}
 	return {
 		raw => $place_text,
-		# city   => $result->{components}{city} || $result->{components}{town},
+		# city => $result->{components}{city} || $result->{components}{town},
 		# region => $result->{components}{state},
 		# country => $result->{components}{country},
-		latitude    => $result->{'latitude'},
-		longitude  => $result->{'longitude'}
+		latitude => $result->{'latitude'},
+		longitude => $result->{'longitude'}
 	};
 }
 
@@ -665,6 +690,10 @@ sub _extract_location {
 =head1 AUTHOR
 
 Nigel Horne, C<< <njh at nigelhorne.com> >>
+
+=head1 SEE ALSO
+
+Test coverage report: L<https://nigelhorne.github.io/Genealogy-Obituary-Parser/coverage/>
 
 =head1 SUPPORT
 
