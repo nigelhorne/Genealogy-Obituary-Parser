@@ -67,7 +67,7 @@ Takes a string, or a ref to a string.
     'text' => {
       'type' => 'string',	# or stringref
       'min' => 1,
-      'max' => 5000
+      'max' => 10000
     }
   }
 
@@ -95,7 +95,7 @@ sub parse_obituary
 			'text' => {
 				'type' => 'string',
 				'min' => 1,
-				'max' => 5000
+				'max' => 10000
 			}
 		}
 	});
