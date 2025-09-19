@@ -1,6 +1,6 @@
 Revision history for Genealogy::Obituary::Parser
 
-0.03
+0.03	Fri Sep 19 07:40:27 EDT 2025
 	Allow a ref to the string to be passed in
 	Support lack of space after "sons,"
 	Added more rules to determine more information

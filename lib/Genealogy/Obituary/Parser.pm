@@ -8,7 +8,7 @@ use Exporter 'import';
 use Geo::Coder::Free;
 use Geo::Coder::List;
 use Params::Get 0.13;
-use Return::Set 0.02;
+use Return::Set 0.03;
 use Params::Validate::Strict;
 
 our @EXPORT_OK = qw(parse_obituary);
@@ -24,11 +24,11 @@ Genealogy::Obituary::Parser - Extract structured family relationships from obitu
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
