@@ -84,27 +84,31 @@
 
 <tbody>
 
-<tr class="med"><td><a href="blib-lib-Genealogy-Obituary-Parser-pm.html" title="View coverage line by line" target="_blank">blib/lib/Genealogy/Obituary/Parser.pm</a> <a href="https://github.com/nigelhorne/Genealogy-Obituary-Parser/blob/a7a053737e317f4947b873fec78779d1a7c7076c/blib/lib/Genealogy/Obituary/Parser.pm" class="icon-link" title="View source on GitHub">&#128269;</a><canvas class="sparkline" width="80" height="20" data-points="77.9,76.7,72.0,73.9,75.8,78.4,78.4,78.4"></canvas></td><td>82.1</td><td>77.2</td><td>56.0</td><td>93.3</td><td><span class="coverage-badge badge-warn" title="Moderate coverage">78.4%</span></td><td class="neutral" title="Previous: 78.4%">&#9679; 0.0%</td></tr>
+<tr class="med"><td><a href="blib-lib-Genealogy-Obituary-Parser-pm.html" title="View coverage line by line" target="_blank">blib/lib/Genealogy/Obituary/Parser.pm</a> <a href="https://github.com/nigelhorne/Genealogy-Obituary-Parser/blob/e541e97fb0842a829ba912571ea33f647fb19a8d/blib/lib/Genealogy/Obituary/Parser.pm" class="icon-link" title="View source on GitHub">&#128269;</a><canvas class="sparkline" width="80" height="20" data-points="77.9,76.7,72.0,73.9,75.8,78.4,78.4,78.4,78.4"></canvas></td><td>82.6</td><td>77.4</td><td>56.0</td><td>93.8</td><td><span class="coverage-badge badge-warn" title="Moderate coverage">78.8%</span></td><td class="positive" title="Previous: 78.4%">&#9650; 0.4%</td></tr>
 
 <tr class="summary-row nosort"><td colspan="2"><strong>Summary</strong></td><td colspan="2">1 files</td><td colspan="3">Avg: 78%, Low: 0</td></tr>
 
-<tr class="med nosort"><td><strong>Total</strong></td><td>82.1</td><td>77.2</td><td>56.0</td><td>93.3</td><td colspan="2"><strong>78.4</strong></td></tr>
+<tr class="med nosort"><td><strong>Total</strong></td><td>82.6</td><td>77.4</td><td>56.0</td><td>93.8</td><td colspan="2"><strong>78.8</strong></td></tr>
 
 </tbody></table>
-<p>
-	<h2>Coverage Trend</h2>
-	<label>
-		<input type="checkbox" id="toggleTrend" checked>
-		Show regression trend
-	</label>
-</p>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em;">
+	<div>
+		<h2>Coverage Trend</h2>
+		<label>
+			<input type="checkbox" id="toggleTrend" checked>
+			Show regression trend
+		</label>
+		<div>
+		</div>
+	</div>
+	<div id="zoomControls" style="margin-top:8px;">
+		<input type="button" value="Refresh" onClick="refresh(this)">
+		<button id="resetZoomBtn" type="button">Reset Zoom</button>
+	</div>
+</div>
 
 <canvas id="coverageTrend" width="600" height="300"></canvas>
 <!-- Zoom controls for the trend chart -->
-<div id="zoomControls" style="margin-top:8px;">
-	<button id="resetZoomBtn" type="button">Reset Zoom</button>
-	<span style="margin-left:8px;color:#666;font-size:0.9em;">Use mouse wheel or pinch to zoom; drag to pan</span>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Add chartjs-plugin-zoom (required for wheel/pinch/drag zoom & pan) -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.1.1/dist/chartjs-plugin-zoom.min.js"></script>
@@ -133,7 +137,8 @@ const dataPoints = [ { x: "2025-08-31T18:54:32-04:00", y: 77.8877887788779, delt
 { x: "2025-09-17T11:58:25-04:00", y: 76.6990291262136, delta: -1.2, url: "https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/74d317b", label: "2025-09-17T11:58:25-04:00", pointBackgroundColor: "red", comment: "Get more sons" },
 { x: "2025-09-17T13:08:12-04:00", y: 75.7575757575758, delta: -0.9, url: "https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/b6a12c1", label: "2025-09-17T13:08:12-04:00", pointBackgroundColor: "red", comment: "Get more daughters" },
 { x: "2025-09-17T13:32:30-04:00", y: 72.0238095238095, delta: -3.7, url: "https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/a263c3c", label: "2025-09-17T13:32:30-04:00", pointBackgroundColor: "red", comment: "Get more brothers" },
-{ x: "2025-09-18T11:33:08-04:00", y: 78.4023668639053, delta: 6.4, url: "https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/6f79630", label: "2025-09-18T11:33:08-04:00", pointBackgroundColor: "green", comment: "Increased the obituary length" } ];
+{ x: "2025-09-18T11:33:08-04:00", y: 78.4023668639053, delta: 6.4, url: "https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/6f79630", label: "2025-09-18T11:33:08-04:00", pointBackgroundColor: "green", comment: "Increased the obituary length" },
+{ x: "2025-09-21T12:23:03-04:00", y: 78.4023668639053, delta: 0.0, url: "https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/a7a0537", label: "2025-09-21T12:23:03-04:00", pointBackgroundColor: "gray", comment: "Fix version consistency" } ];
 
 const regressionPoints = linearRegression(dataPoints);
 // Try to register the zoom plugin (handles different UMD builds)
@@ -386,11 +391,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
+function refresh(){
+	window.location.reload("Refresh")
+}
 </script>
 
 <footer>
+	<p><span style="margin-left:8px;color:#666;font-size:0.9em;">Use mouse wheel or pinch to zoom; drag to pan</span></p>
 	<p>Project: <a href="https://github.com/nigelhorne/Genealogy-Obituary-Parser">Genealogy-Obituary-Parser</a></p>
-	<p><em>Last updated: 2025-09-21 16:33:53 - <a href="https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/a7a053737e317f4947b873fec78779d1a7c7076c">commit <code>a7a0537</code></a></em></p>
+	<p><em>Last updated: 2025-10-20 12:35:57 - <a href="https://github.com/nigelhorne/Genealogy-Obituary-Parser/commit/e541e97fb0842a829ba912571ea33f647fb19a8d">commit <code>e541e97</code></a></em></p>
 </footer>
 </body>
 </html>
