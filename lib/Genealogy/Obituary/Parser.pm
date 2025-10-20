@@ -799,9 +799,10 @@ sub _extract_location {
 	my $place_text = shift;
 
 	unless($geocoder) {
-		eval { require Geo::Coder::Free; };
+		eval { require Geo::Coder::Free };
 		if($@) {
-			croak(__PACKAGE__, ' (', __LINE__, "): $@");
+			Cap::carp(__PACKAGE__, ' (', __LINE__, "): geocoding locations disabled: $@");
+			return;
 		}
 		$geocoder = Geo::Coder::Free->new();
 	}
