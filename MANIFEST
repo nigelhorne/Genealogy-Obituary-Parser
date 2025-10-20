@@ -10,8 +10,10 @@ t/00-load.t
 t/30-basics.t
 t/comment-spelling.t
 t/complex.t
+t/conf/parse_obituary.yml
 t/eof.t
 t/eol.t
+t/fuzz.t
 t/parse_obituary.t
 t/pod-cm.t
 t/pod-synopsis.t

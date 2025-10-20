@@ -3,6 +3,7 @@ package Genealogy::Obituary::Parser;
 use strict;
 use warnings;
 
+use Carp;
 use DateTime::Format::Text;
 use Exporter 'import';
 use Geo::Coder::Free;
@@ -33,7 +34,7 @@ our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
-  use Genealogy::Obituary::Parse qw(parse_obituary);
+  use Genealogy::Obituary::Parser qw(parse_obituary);
 
   my $text = 'She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.';
   my $data = parse_obituary($text);
@@ -101,6 +102,8 @@ sub parse_obituary
 		}
 	});
 	my $text = $params->{'text'};
+
+	Carp::croak(__PACKAGE__, ': Usage: parse_obituary($text)') unless defined($text);
 
 	if(ref($text) eq 'SCALAR') {
 		$text = ${$text};
