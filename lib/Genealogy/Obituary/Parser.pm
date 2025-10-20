@@ -434,6 +434,7 @@ sub parse_obituary
 			if($name) {
 				push @{$family{sisters}}, {
 					name => $name,
+					sex => 'F',
 					status => ($text =~ /\bpredeceased by.*?$name/i) ? 'deceased' : 'living',
 				};
 			}
@@ -543,6 +544,27 @@ sub parse_obituary
 				}
 			}
 		}
+	}
+
+	if(!exists($family{'brothers'}) && $text =~ /\b(?:two|three|four)\s+brothers?,\s*(.+?)(?:,\s*a\s+(?:sister|half-sister)|;)/i) {
+		# Pattern for "two brothers, Name and Name"
+		my $brothers_text = $1;
+		my @brothers;
+		
+		# Handle "Charles F. Harris and Berton Harris"
+		if($brothers_text =~ /\band\b/) {
+			my @names = split /\s+and\s+/, $brothers_text;
+			foreach my $name (@names) {
+				$name =~ s/^\s+|\s+$//g;
+				$name =~ s/,\s*$//;
+				push @brothers, {
+					name => $name,
+					sex => 'M',
+					status => 'living'
+				};
+			}
+		}
+		$family{brothers} = \@brothers if(scalar @brothers);
 	}
 
 	# Detect nieces/nephews

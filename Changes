@@ -3,7 +3,7 @@ Revision history for Genealogy::Obituary::Parser
 0.04
 	Fix version consistency
 	Latest test dashboard
-	Improved parsing of sisters
+	Improved parsing of sisters and brothers
 
 0.03	Fri Sep 19 07:40:27 EDT 2025
 	Allow a ref to the string to be passed in
