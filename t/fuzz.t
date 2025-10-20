@@ -37,6 +37,7 @@ my %config = (
 
 
 my %input = (
+	'geocoder' => { can => 'geocode', optional => 1, type => 'object' },
 	'text' => { max => 10000, min => 1, type => 'string' }
 );
 

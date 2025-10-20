@@ -59,6 +59,7 @@ with each family member's data organized into distinct categories such as childr
 
 Takes a string, or a ref to a string.
 
+
 =head3 API SPECIFICATION
 
 =head4 INPUT
@@ -68,6 +69,10 @@ Takes a string, or a ref to a string.
       'type' => 'string',	# or stringref
       'min' => 1,
       'max' => 10000
+    }, 'geocoder' => {	# used to geocode locations to verify they exist
+      'type' => 'object',
+      'can' => 'geocode',
+      'optional' => 1,
     }
   }
 
@@ -96,10 +101,19 @@ sub parse_obituary
 				'type' => 'string',
 				'min' => 1,
 				'max' => 10000
+			}, 'geocoder' => {
+				'type' => 'object',
+				'can' => 'geocode',
+				'optional' => 1,
 			}
 		}
 	});
+
 	my $text = $params->{'text'};
+
+	if(my $geo = $params->{'geocoder'}) {
+		$geocoder = $geo;
+	}
 
 	Carp::croak(__PACKAGE__, ': Usage: parse_obituary($text)') unless defined($text);
 
