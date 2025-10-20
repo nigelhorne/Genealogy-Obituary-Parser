@@ -32,6 +32,10 @@ jobs:
           sudo apt-get -y upgrade
         if: runner.os == 'Linux'
 
+      - name: Install Perl dependencies
+        run: |
+          cpanm --notest LWP::UserAgent LWP::Protocol::https
+
       - name: Install App::Test::Generator this module's dependencies
         run: |
           cpanm App::Test::Generator

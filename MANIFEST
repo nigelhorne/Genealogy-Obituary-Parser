@@ -18,3 +18,4 @@ t/parse_obituary.t
 t/pod-cm.t
 t/pod-synopsis.t
 t/pod.t
+t/vars.t

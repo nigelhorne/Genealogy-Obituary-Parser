@@ -493,8 +493,6 @@ sub parse_obituary
 		$family{brothers} = extract_people_section($brothers_text);
 		# TODO: mark all statuses to deceased
 	} else {
-		my @siblings;
-
 		while ($text =~ /\bbrother,\s*([A-Z][a-z]+(?:\s+[A-Z][a-z.]+)*)(?:,\s*([A-Z][a-z]+))?/g) {
 			$family{'brothers'} ||= [];
 			push @{$family{brothers}}, {

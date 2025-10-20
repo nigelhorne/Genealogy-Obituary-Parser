@@ -6,11 +6,11 @@ Genealogy::Obituary::Parser - Extract structured family relationships from obitu
 
 # VERSION
 
-Version 0.02
+Version 0.03
 
 # SYNOPSIS
 
-    use Genealogy::Obituary::Parse qw(parse_obituary);
+    use Genealogy::Obituary::Parser qw(parse_obituary);
 
     my $text = 'She is survived by her husband Paul, daughters Anna and Lucy, and grandchildren Jake and Emma.';
     my $data = parse_obituary($text);
@@ -45,7 +45,7 @@ Takes a string, or a ref to a string.
       'text' => {
         'type' => 'string',       # or stringref
         'min' => 1,
-        'max' => 5000
+        'max' => 10000
       }
     }
 
