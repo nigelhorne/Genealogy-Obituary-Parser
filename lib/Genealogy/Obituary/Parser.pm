@@ -815,7 +815,7 @@ sub _extract_location {
 	unless($geocoder) {
 		eval { require Geo::Coder::Free };
 		if($@) {
-			Cap::carp(__PACKAGE__, ' (', __LINE__, "): geocoding locations disabled: $@");
+			Carp::carp(__PACKAGE__, ' (', __LINE__, "): geocoding locations disabled: $@");
 			return;
 		}
 		$geocoder = Geo::Coder::Free->new();
