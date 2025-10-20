@@ -25,6 +25,7 @@ WriteMakefile(
 		'Params::Validate::Strict' => 0.10,
 		'Return::Set' => 0.03
 	}, TEST_REQUIRES => {
+		'Data::Random' => 0,
 		'Test::DescribeMe' => 0,
 		'Test::Most' => 0,
 		'Test::Needs' => 0
