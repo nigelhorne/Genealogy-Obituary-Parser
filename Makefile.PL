@@ -27,6 +27,7 @@ WriteMakefile(
 		'File::Glob' => 0,
 		'File::Slurp' => 0,
 		'File::stat' => 0,
+		'IPC::System::Simple' => 0,
 		'POSIX' => 0,
 		'Readonly' => 0,
 		'Test::DescribeMe' => 0,
