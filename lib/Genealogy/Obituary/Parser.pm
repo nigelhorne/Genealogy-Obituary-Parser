@@ -252,6 +252,25 @@ sub parse_obituary
 		}
 		$family{children} = \@children if @children;
 		$family{grandchildren} = \@grandchildren if @grandchildren;
+	} elsif($text =~ /Surviving are (?:a )?daughters?,\s*Mrs\.\s+(\w+)\s+\(([^)]+)\)\s+(\w+),\s+([^;]+?);/i) {
+		# Handle "Surviving are a daughter, Mrs. Walter (Ruth Ann) Gerke, Fort Wayne"
+		my @children;
+		my $spouse_first = $1;
+		my $daughter_name = $2;
+		my $spouse_last = $3;
+		my $location = $4;
+		$location =~ s/,\s*$//;
+		
+		push @children, {
+			name => $daughter_name,
+			location => $location,
+			sex => 'F',
+			spouse => { 
+				name => "$spouse_first $spouse_last", 
+				sex => 'M' 
+			}
+		};
+		$family{children} = \@children;
 	} else {
 		my @children;
 
