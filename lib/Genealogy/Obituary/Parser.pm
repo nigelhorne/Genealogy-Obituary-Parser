@@ -7,6 +7,7 @@ use DateTime::Format::Text;
 use Exporter 'import';
 use Geo::Coder::Free;
 use Geo::Coder::List;
+use JSON::MaybeXS;
 use Params::Get 0.13;
 use Return::Set 0.03;
 use Params::Validate::Strict;
@@ -449,6 +450,17 @@ sub parse_obituary
 					}
 				}
 			}
+		}
+
+		if($family{'sisters'}) {
+			# Deduplicate by serializing hashes for comparison
+			my %seen;
+			my @sisters = grep { 
+				my $key = JSON::MaybeXS->new->canonical(1)->encode($_);
+				!$seen{$key}++
+			} @{$family{sisters}};
+
+			$family{sisters} = \@sisters;
 		}
 	}
 

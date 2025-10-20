@@ -19,6 +19,7 @@ WriteMakefile(
 		'DateTime::Format::Text' => 0,
 		'Geo::Coder::Free' => 0,
 		'Geo::Coder::List' => 0,
+		'JSON::MaybeXS' => 0,
 		'Params::Get' => 0.13,
 		'Params::Validate::Strict' => 0.10,
 		'Return::Set' => 0.03
