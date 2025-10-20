@@ -6,8 +6,6 @@ use warnings;
 use Carp;
 use DateTime::Format::Text;
 use Exporter 'import';
-use Geo::Coder::Free;
-use Geo::Coder::List;
 use JSON::MaybeXS;
 use Params::Get 0.13;
 use Return::Set 0.03;
@@ -800,7 +798,14 @@ sub _extract_date
 sub _extract_location {
 	my $place_text = shift;
 
-	$geocoder ||= Geo::Coder::List->new()->push(Geo::Coder::Free->new());
+	unless($geocoder) {
+		eval { require Geo::Coder::Free; };
+		if($@) {
+			croak(__PACKAGE__, ' (', __LINE__, "): $@");
+		}
+		$geocoder = Geo::Coder::Free->new();
+	}
+
 	my @locations = $geocoder->geocode(location => $place_text);	# Use array to improve caching
 
 	return unless scalar(@locations);
