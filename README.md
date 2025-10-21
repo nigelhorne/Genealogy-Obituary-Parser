@@ -6,7 +6,7 @@ Genealogy::Obituary::Parser - Extract structured family relationships from obitu
 
 # VERSION
 
-Version 0.03
+Version 0.04
 
 # SYNOPSIS
 
@@ -46,6 +46,10 @@ Takes a string, or a ref to a string.
         'type' => 'string',       # or stringref
         'min' => 1,
         'max' => 10000
+      }, 'geocoder' => {  # used to geocode locations to verify they exist
+        'type' => 'object',
+        'can' => 'geocode',
+        'optional' => 1,
       }
     }
 
