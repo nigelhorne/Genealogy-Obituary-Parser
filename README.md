@@ -23,9 +23,10 @@ Version 0.04
 
 # DESCRIPTION
 
-This module parses freeform obituary text and extracts structured family relationship data
+This module parses free-form obituary text and extracts structured family relationship data
 for use in genealogical applications.
-It parses obituary text and extract structured family relationship data, including details about children, parents, spouse, siblings, grandchildren, and other relatives.
+It parses obituary text and extracts structured family relationship data,
+including details about children, parents, spouse, siblings, grandchildren, and other relatives.
 
 # FUNCTIONS
 

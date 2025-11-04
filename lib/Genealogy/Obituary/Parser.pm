@@ -15,7 +15,7 @@ our @EXPORT_OK = qw(parse_obituary);
 our $geocoder;
 
 # TODO:	use Lingua::EN::Tagger;
-# TODO:	add more general code, e.g. where it looks for father, also look for mother
+# TODO:	add more general code, e.g., where it looks for father, also look for mother
 # TODO: parse https://funeral-notices.co.uk/notice/adams/5244000
 
 =head1 NAME
@@ -45,9 +45,10 @@ our $VERSION = '0.04';
 
 =head1 DESCRIPTION
 
-This module parses freeform obituary text and extracts structured family relationship data
+This module parses free-form obituary text and extracts structured family relationship data
 for use in genealogical applications.
-It parses obituary text and extract structured family relationship data, including details about children, parents, spouse, siblings, grandchildren, and other relatives.
+It parses obituary text and extracts structured family relationship data,
+including details about children, parents, spouse, siblings, grandchildren, and other relatives.
 
 =head1 FUNCTIONS
 
