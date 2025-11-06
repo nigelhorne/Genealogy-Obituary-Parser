@@ -20,7 +20,7 @@ https://pjcj.net
 <h1>Branch Coverage</h1>
 <table>
 <tr><td class="h" align="right">File:</td><td align="left">blib/lib/Genealogy/Obituary/Parser.pm</td></tr>
-<tr><td class="h" align="right">Coverage:</td><td align="left" class="c1">75.2%</td></tr>
+<tr><td class="h" align="right">Coverage:</td><td align="left" class="c1">75.0%</td></tr>
 </table>
 <div><br/></div>
 <table>
@@ -135,21 +135,22 @@ https://pjcj.net
 <tr><td class="h"><a id="L745">745</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($1))</td></tr>
 <tr><td class="h"><a id="L748">748</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($2)</td></tr>
 <tr><td class="h"><a id="L754">754</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bpassed away\b.*?\b(?:on\s+)?([A-Z]+ \d{1,2}, \d{4})/i)</td></tr>
-<tr><td class="h"><a id="L760">760</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /,\s(\d{1,3}), of\s/)</td></tr>
-<tr><td class="h"><a id="L761">761</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($1 &lt; 110)</td></tr>
-<tr><td class="h"><a id="L767">767</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\b(?:passed away|died)\b([a-z0-9\s,]+)\sat\s+(.+?)\./i)</td></tr>
-<tr><td class="h"><a id="L769">769</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($place =~ /(.+)\s+on\s+([A-Z]+ \d{1,2}, \d{4})/i) { }</td></tr>
+<tr><td class="h"><a id="L756">756</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($1))</td></tr>
+<tr><td class="h"><a id="L762">762</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /,\s(\d{1,3}), of\s/)</td></tr>
+<tr><td class="h"><a id="L763">763</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($1 &lt; 110)</td></tr>
+<tr><td class="h"><a id="L769">769</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\b(?:passed away|died)\b([a-z0-9\s,]+)\sat\s+(.+?)\./i)</td></tr>
+<tr><td class="h"><a id="L771">771</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($place =~ /(.+)\s+on\s+([A-Z]+ \d{1,2}, \d{4})/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($place =~ /(.+)\son\s(.+)/) { }</td></tr>
-<tr><td class="h"><a id="L774">774</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($2))</td></tr>
-<tr><td class="h"><a id="L785">785</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $family{$_}</td></tr>
-<tr><td class="h"><a id="L789">789</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (ref $family{$key} eq &quot;ARRAY&quot;)</td></tr>
-<tr><td class="h"><a id="L791">791</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (@{$family{$key};} == 0)</td></tr>
-<tr><td class="h"><a id="L797">797</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless scalar keys %family</td></tr>
-<tr><td class="h"><a id="L809">809</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if $dt and not $@</td></tr>
-<tr><td class="h"><a id="L816">816</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">unless ($geocoder)</td></tr>
-<tr><td class="h"><a id="L818">818</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($@)</td></tr>
-<tr><td class="h"><a id="L827">827</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless scalar @locations</td></tr>
-<tr><td class="h"><a id="L831">831</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if (ref $result)</td></tr>
+<tr><td class="h"><a id="L776">776</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($2))</td></tr>
+<tr><td class="h"><a id="L787">787</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $family{$_}</td></tr>
+<tr><td class="h"><a id="L791">791</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (ref $family{$key} eq &quot;ARRAY&quot;)</td></tr>
+<tr><td class="h"><a id="L793">793</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (@{$family{$key};} == 0)</td></tr>
+<tr><td class="h"><a id="L799">799</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless scalar keys %family</td></tr>
+<tr><td class="h"><a id="L811">811</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if $dt and not $@</td></tr>
+<tr><td class="h"><a id="L818">818</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">unless ($geocoder)</td></tr>
+<tr><td class="h"><a id="L820">820</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($@)</td></tr>
+<tr><td class="h"><a id="L829">829</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless scalar @locations</td></tr>
+<tr><td class="h"><a id="L833">833</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if (ref $result)</td></tr>
 </table>
 </body>
 </html>
