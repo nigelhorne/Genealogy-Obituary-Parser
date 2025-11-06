@@ -76,6 +76,15 @@ Test coverage report: [https://nigelhorne.github.io/Genealogy-Obituary-Parser/co
 
 This module is provided as-is without any warranty.
 
-# LICENSE
+# LICENCE AND COPYRIGHT
 
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+Copyright 2025 Nigel Horne.
+
+Usage is subject to licence terms.
+
+The licence terms of this software are as follows:
+
+- Personal single user, single computer use: GPL2
+- All other users (including Commercial, Charity, Educational, Government)
+  must apply in writing for a licence for use from Nigel Horne at the
+  above e-mail.

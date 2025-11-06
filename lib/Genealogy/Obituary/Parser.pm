@@ -60,7 +60,6 @@ with each family member's data organized into distinct categories such as childr
 
 Takes a string, or a ref to a string.
 
-
 =head3 API SPECIFICATION
 
 =head4 INPUT
@@ -95,7 +94,7 @@ Takes a string, or a ref to a string.
 
 sub parse_obituary
 {
-        my $params = Params::Validate::Strict::validate_strict({
+	my $params = Params::Validate::Strict::validate_strict({
 		args => Params::Get::get_params('text', \@_),
 		schema => {
 			'text' => {
@@ -128,7 +127,7 @@ sub parse_obituary
 		my %data;
 
 		my @patterns = (
-			[ qr/\bdaughters?\s+([^.,;]+)/i,  'children' ],
+			[ qr/\bdaughters?\s+([^.,;]+)/i, 'children' ],
 			[ qr/\bsons?\s+([^.,;]+)/i, 'children' ],
 			[ qr/\bchildren\s+([^.,;]+)/i, 'children' ],
 			[ qr/\bgrandchildren\s+([^.;]+)/i, 'grandchildren' ],
@@ -281,9 +280,9 @@ sub parse_obituary
 			name => $daughter_name,
 			location => $location,
 			sex => 'F',
-			spouse => { 
-				name => "$spouse_first $spouse_last", 
-				sex => 'M' 
+			spouse => {
+				name => "$spouse_first $spouse_last",
+				sex => 'M'
 			}
 		};
 		$family{children} = \@children;
@@ -491,7 +490,7 @@ sub parse_obituary
 		if($family{'sisters'}) {
 			# Deduplicate by serializing hashes for comparison
 			my %seen;
-			my @sisters = grep { 
+			my @sisters = grep {
 				my $key = JSON::MaybeXS->new->canonical(1)->encode($_);
 				!$seen{$key}++
 			} @{$family{sisters}};
@@ -863,9 +862,23 @@ Test coverage report: L<https://nigelhorne.github.io/Genealogy-Obituary-Parser/c
 
 This module is provided as-is without any warranty.
 
-=head1 LICENSE
+=head1 LICENCE AND COPYRIGHT
 
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+Copyright 2025 Nigel Horne.
+
+Usage is subject to licence terms.
+
+The licence terms of this software are as follows:
+
+=over 4
+
+=item * Personal single user, single computer use: GPL2
+
+=item * All other users (including Commercial, Charity, Educational, Government)
+  must apply in writing for a licence for use from Nigel Horne at the
+  above e-mail.
+
+=back
 
 =cut
 
