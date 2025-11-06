@@ -623,11 +623,14 @@ sub parse_obituary
 	} elsif($text =~ /\bmarried ([^,]+),.*?\b(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})(?:.*?\b(?:at|in)\s+([^.,]+))?/i) {
 		$family{'spouse'} ||= [];
 
+		my($name, $date, $place) = ($1, $2, $3);
+		$name =~ s/\s+on\s.+$//;
+
 		push @{$family{'spouse'}}, {
-			name => $1,
+			name => $name,
 			married => {
-				date => $2,
-				place => $3 // '',
+				date => $date,
+				place => $place // '',
 			}
 		};
 	} elsif($text =~ /husband (?:to|of) the late\s([\w\s]+)[\s\.]/i) {
