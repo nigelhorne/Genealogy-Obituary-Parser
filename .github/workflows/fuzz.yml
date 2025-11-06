@@ -29,7 +29,7 @@ jobs:
       - name: Update Ubuntu Packages
         run: |
           sudo apt-get update
-          sudo apt-get -y upgrade && sudo apt-get install -y libdb-dev libwww-perl
+          sudo apt-get -y upgrade && sudo apt-get install -y libdb-dev libwww-perl mailutils
         if: runner.os == 'Linux'
 
       - name: Install Perl dependencies
@@ -48,6 +48,7 @@ jobs:
           make
         env:
           AUTOMATED_TESTING: 1
+          NONINTERACTIVE_TESTING: 1
 
       - name: Generate fuzz tests
         run: |
@@ -62,7 +63,10 @@ jobs:
           prove -lr t/fuzz/
         env:
           AUTOMATED_TESTING: 1
+          NONINTERACTIVE_TESTING: 1
 
       - name: Show cpanm build log on failure (non-Windows)
         if: runner.os != 'Windows' && failure()
-        run: tail -100 "$HOME/.cpanm/work/*/build.log"
+        run: |
+          echo "Fuzz Testing workflow failed" | mailx -s "GitHub Action Failed" alerts@nigelhorne.com
+          tail -100 "$HOME/.cpanm/work/*/build.log"

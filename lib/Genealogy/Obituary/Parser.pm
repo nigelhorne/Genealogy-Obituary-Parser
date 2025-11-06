@@ -753,7 +753,9 @@ sub parse_obituary
 	# Date of death
 	if($text =~ /\bpassed away\b.*?\b(?:on\s+)?([A-Z]+ \d{1,2}, \d{4})/i) {
 		$family{death}->{date} = $1;
-		$family{death}->{datetime} = _extract_date($1);
+		if(my $dt = _extract_date($1)) {
+			$family{death}->{datetime} = $dt;
+		}
 	}
 
 	# Age at death
