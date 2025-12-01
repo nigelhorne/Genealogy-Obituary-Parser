@@ -121,9 +121,6 @@ sub parse_obituary
 		$text = ${$text};
 	}
 
-	# Normalize punctuation for easier parsing
-	# $text =~ s/;\s+/, /g;               # semicolons -> commas
-	# $text =~ s/\band\b\s+/, /g;         # "and X" -> ", X" for multi-lists
 	$text =~ s/\s+, +/, /g;	# Collapse multiple commas
 
 	# Quick scan to get started
@@ -280,7 +277,7 @@ sub parse_obituary
 		my $spouse_last = $3;
 		my $location = $4;
 		$location =~ s/,\s*$//;
-		
+
 		push @children, {
 			name => $daughter_name,
 			location => $location,
@@ -568,7 +565,7 @@ sub parse_obituary
 		# Pattern for "two brothers, Name and Name"
 		my $brothers_text = $1;
 		my @brothers;
-		
+
 		# Handle "Charles F. Harris and Berton Harris"
 		if($brothers_text =~ /\band\b/) {
 			my @names = split /\s+and\s+/, $brothers_text;

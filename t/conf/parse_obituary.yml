@@ -4,6 +4,9 @@
 module: Genealogy::Obituary::Parser
 function: parse_obituary
 
+config:
+  test_nuls: off
+
 input:
   text:
     type: string
@@ -13,3 +16,9 @@ input:
     type: object
     can: geocode
     optional: 1
+
+output:
+  type: hashref
+  min: 1
+  max: 10
+  optional: 1
