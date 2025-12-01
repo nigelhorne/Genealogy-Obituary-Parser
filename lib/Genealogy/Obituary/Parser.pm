@@ -213,7 +213,7 @@ sub parse_obituary
 	}
 
 	sub extract_names_from_phrase {
-		my $phrase = shift;
+		my $phrase = $_[0];
 		my @names;
 
 		$phrase =~ s/[.;]//g;
