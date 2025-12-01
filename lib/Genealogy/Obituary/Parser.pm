@@ -121,6 +121,11 @@ sub parse_obituary
 		$text = ${$text};
 	}
 
+	# Normalize punctuation for easier parsing
+	# $text =~ s/;\s+/, /g;               # semicolons -> commas
+	# $text =~ s/\band\b\s+/, /g;         # "and X" -> ", X" for multi-lists
+	$text =~ s/\s+, +/, /g;	# Collapse multiple commas
+
 	# Quick scan to get started
 	sub parse_obituary_quick {
 		my $text = shift;
