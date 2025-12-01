@@ -20,137 +20,137 @@ https://pjcj.net
 <h1>Branch Coverage</h1>
 <table>
 <tr><td class="h" align="right">File:</td><td align="left">blib/lib/Genealogy/Obituary/Parser.pm</td></tr>
-<tr><td class="h" align="right">Coverage:</td><td align="left" class="c1">75.0%</td></tr>
+<tr><td class="h" align="right">Coverage:</td><td align="left" class="c0">74.2%</td></tr>
 </table>
 <div><br/></div>
 <table>
 <tr><th>line</th><th>%</th><th colspan="2">coverage</th><th>branch</th></tr>
 <tr><td class="h"><a id="L114">114</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (my $geo = $params-&gt;{&#39;geocoder&#39;})</td></tr>
-<tr><td class="h"><a id="L118">118</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless defined $text</td></tr>
+<tr><td class="h"><a id="L118">118</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">unless defined $text</td></tr>
 <tr><td class="h"><a id="L120">120</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (ref $text eq &quot;SCALAR&quot;)</td></tr>
-<tr><td class="h"><a id="L153">153</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless $list</td></tr>
-<tr><td class="h"><a id="L170">170</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">unless $section</td></tr>
-<tr><td class="h"><a id="L183">183</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($entry =~ /^(\w+)\s+\(([^)]+)\)\s+(\w+)\s+of\s+(.+)$/) { }</td></tr>
+<tr><td class="h"><a id="L150">150</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless $list</td></tr>
+<tr><td class="h"><a id="L167">167</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">unless $section</td></tr>
+<tr><td class="h"><a id="L180">180</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($entry =~ /^(\w+)\s+\(([^)]+)\)\s+(\w+)\s+of\s+(.+)$/) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($entry =~ /^(.+?)\s+\(([^)]+)\)\s+of\s+(.+)$/) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($entry =~ /^(.+?)\s+of\s+(.+)$/) { }</td></tr>
-<tr><td class="h"><a id="L198">198</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless $name</td></tr>
-<tr><td class="h"><a id="L199">199</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if $name =~ /^father-in-law\sto\s/</td></tr>
-<tr><td class="h"><a id="L200">200</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if $name =~ /^devoted\s/i</td></tr>
-<tr><td class="h"><a id="L201">201</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if $name =~ /^loved\s/i</td></tr>
-<tr><td class="h"><a id="L211">211</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $person{$_}</td></tr>
-<tr><td class="h"><a id="L225">225</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($phrase =~ /^((?:\w+\s*,\s*)+\w+),?\s*and\s+(\w+)\s+(\w+)$/)</td></tr>
-<tr><td class="h"><a id="L234">234</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($phrase =~ /^([\w\s]+?)\s+and\s+(\w+)\s+(\w+)$/)</td></tr>
-<tr><td class="h"><a id="L244">244</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $_</td></tr>
-<tr><td class="h"><a id="L249">249</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /survived by (his|her) children\s*([^\.;]+)/i) { }</td></tr>
+<tr><td class="h"><a id="L195">195</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless $name</td></tr>
+<tr><td class="h"><a id="L196">196</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if $name =~ /^father-in-law\sto\s/</td></tr>
+<tr><td class="h"><a id="L197">197</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if $name =~ /^devoted\s/i</td></tr>
+<tr><td class="h"><a id="L198">198</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if $name =~ /^loved\s/i</td></tr>
+<tr><td class="h"><a id="L208">208</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $person{$_}</td></tr>
+<tr><td class="h"><a id="L222">222</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($phrase =~ /^((?:\w+\s*,\s*)+\w+),?\s*and\s+(\w+)\s+(\w+)$/)</td></tr>
+<tr><td class="h"><a id="L231">231</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($phrase =~ /^([\w\s]+?)\s+and\s+(\w+)\s+(\w+)$/)</td></tr>
+<tr><td class="h"><a id="L241">241</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $_</td></tr>
+<tr><td class="h"><a id="L246">246</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /survived by (his|her) children\s*([^\.;]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /Loving mum to\s*([^\.;]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /Loving father of\s*([^\.;]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /mother of\s*([^\.;]+)?,/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /sons,?\s*([a-z]+)\s+and\s+([a-z]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /Surviving are (?:a )?daughters?,\s*Mrs\.\s+(\w+)\s+\(([^)]+)\)\s+(\w+),\s+([^;]+?);/i) { }</td></tr>
-<tr><td class="h"><a id="L267">267</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bdaughter,?\s([a-z]+)/i)</td></tr>
-<tr><td class="h"><a id="L270">270</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bgranddaughter,?\s([a-z]+)/i)</td></tr>
-<tr><td class="h"><a id="L273">273</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if @children</td></tr>
-<tr><td class="h"><a id="L274">274</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @grandchildren</td></tr>
-<tr><td class="h"><a id="L300">300</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\ssons,\s*(.*?);/s)</td></tr>
-<tr><td class="h"><a id="L302">302</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($sons_text =~ /, all of (.+)$/) { }</td></tr>
-<tr><td class="h"><a id="L306">306</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($son =~ /(\w+)\s+and\s+(\w+)/) { }</td></tr>
-<tr><td class="h"><a id="L335">335</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sdaughters?,\s*Mrs\.\s+(.+?)\s+(\w+),\s+([^;]+)\sand/) { }</td></tr>
+<tr><td class="h"><a id="L264">264</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bdaughter,?\s([a-z]+)/i)</td></tr>
+<tr><td class="h"><a id="L267">267</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bgranddaughter,?\s([a-z]+)/i)</td></tr>
+<tr><td class="h"><a id="L270">270</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if @children</td></tr>
+<tr><td class="h"><a id="L271">271</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @grandchildren</td></tr>
+<tr><td class="h"><a id="L297">297</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\ssons,\s*(.*?);/s)</td></tr>
+<tr><td class="h"><a id="L299">299</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($sons_text =~ /, all of (.+)$/) { }</td></tr>
+<tr><td class="h"><a id="L303">303</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($son =~ /(\w+)\s+and\s+(\w+)/) { }</td></tr>
+<tr><td class="h"><a id="L332">332</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sdaughters?,\s*Mrs\.\s+(.+?)\s+(\w+),\s+([^;]+)\sand/) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /one daughter,\s*(.+?),\s*(.+?);/) { }</td></tr>
-<tr><td class="h"><a id="L345">345</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($name =~ /(\w+)\s+(\w+)/) { }</td></tr>
-<tr><td class="h"><a id="L360">360</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @children</td></tr>
-<tr><td class="h"><a id="L362">362</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;children&#39;})</td></tr>
-<tr><td class="h"><a id="L364">364</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">$1 eq &#39;son&#39; ? :</td></tr>
-<tr><td class="h"><a id="L367">367</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">$grandkids ? :</td></tr>
+<tr><td class="h"><a id="L342">342</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($name =~ /(\w+)\s+(\w+)/) { }</td></tr>
+<tr><td class="h"><a id="L357">357</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @children</td></tr>
+<tr><td class="h"><a id="L359">359</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;children&#39;})</td></tr>
+<tr><td class="h"><a id="L361">361</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">$1 eq &#39;son&#39; ? :</td></tr>
+<tr><td class="h"><a id="L364">364</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">$grandkids ? :</td></tr>
 <tr><td class="h"></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (my(@grandchildren) = $grandkids ? split(/\s*,\s*|\s+and\s+/, $grandkids, 0) : ()) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($sex eq &#39;F&#39; and $child =~ /(.+)\s+\((.+)\)/) { }</td></tr>
 <tr><td class="h"></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">elsif ($child ne &#39;Mrs&#39;) { }</td></tr>
-<tr><td class="h"><a id="L380">380</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @children</td></tr>
-<tr><td class="h"><a id="L383">383</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;children&#39;})</td></tr>
-<tr><td class="h"><a id="L384">384</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($text =~ /\ssons?[,\s]\s*(.+?)[;\.]/)</td></tr>
-<tr><td class="h"><a id="L390">390</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sdaughters?[,\s]\s*(.+?)[;\.]/)</td></tr>
-<tr><td class="h"><a id="L399">399</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;grandchildren&#39;})</td></tr>
-<tr><td class="h"><a id="L400">400</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /grandchildren\s+([^\.;]+)/i)</td></tr>
-<tr><td class="h"><a id="L402">402</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (scalar @grandchildren)</td></tr>
-<tr><td class="h"><a id="L403">403</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $_</td></tr>
-<tr><td class="h"><a id="L407">407</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($family{&#39;grandchildren&#39;} and scalar @{$family{&#39;grandchildren&#39;};}) { }</td></tr>
-<tr><td class="h"><a id="L411">411</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($family{&#39;grandchildren&#39;}[0] =~ /brothers/)</td></tr>
-<tr><td class="h"><a id="L412">412</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless (exists $family{&#39;brothers&#39;})</td></tr>
-<tr><td class="h"><a id="L421">421</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (not defined $family{&#39;grandchildren&#39;} or $#{$family{&quot;grandchildren&quot;};} &lt;= 0)</td></tr>
-<tr><td class="h"><a id="L426">426</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($grandchildren_str)</td></tr>
-<tr><td class="h"><a id="L429">429</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (scalar @grandchildren) { }</td></tr>
+<tr><td class="h"><a id="L377">377</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @children</td></tr>
+<tr><td class="h"><a id="L380">380</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;children&#39;})</td></tr>
+<tr><td class="h"><a id="L381">381</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($text =~ /\ssons?[,\s]\s*(.+?)[;\.]/)</td></tr>
+<tr><td class="h"><a id="L387">387</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sdaughters?[,\s]\s*(.+?)[;\.]/)</td></tr>
+<tr><td class="h"><a id="L396">396</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;grandchildren&#39;})</td></tr>
+<tr><td class="h"><a id="L397">397</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /grandchildren\s+([^\.;]+)/i)</td></tr>
+<tr><td class="h"><a id="L399">399</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (scalar @grandchildren)</td></tr>
+<tr><td class="h"><a id="L400">400</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $_</td></tr>
+<tr><td class="h"><a id="L404">404</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($family{&#39;grandchildren&#39;} and scalar @{$family{&#39;grandchildren&#39;};}) { }</td></tr>
+<tr><td class="h"><a id="L408">408</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($family{&#39;grandchildren&#39;}[0] =~ /brothers/)</td></tr>
+<tr><td class="h"><a id="L409">409</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless (exists $family{&#39;brothers&#39;})</td></tr>
+<tr><td class="h"><a id="L418">418</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (not defined $family{&#39;grandchildren&#39;} or $#{$family{&quot;grandchildren&quot;};} &lt;= 0)</td></tr>
+<tr><td class="h"><a id="L423">423</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($grandchildren_str)</td></tr>
+<tr><td class="h"><a id="L426">426</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (scalar @grandchildren) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /grandm\w+\s/) { }</td></tr>
-<tr><td class="h"><a id="L439">439</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /predeceased by (his|her) sisters?\s*([^;\.]+);?/i) { }</td></tr>
-<tr><td class="h"><a id="L447">447</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($name eq &quot;Mrs&quot;)</td></tr>
-<tr><td class="h"><a id="L448">448</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($text =~ / sister,\s*Mrs\.\s+([A-Z][a-zA-Z]+\s+[A-Z][a-zA-Z]+)/) { }</td></tr>
-<tr><td class="h"><a id="L454">454</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($name)</td></tr>
-<tr><td class="h"><a id="L455">455</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">$text =~ /\bpredeceased by.*?$name/i ? :</td></tr>
-<tr><td class="h"><a id="L463">463</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless (exists $family{&#39;sisters&#39;})</td></tr>
-<tr><td class="h"><a id="L464">464</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\stwo\ssisters,\s*(.*?)\sand\s(.*?)[;:]/s)</td></tr>
-<tr><td class="h"><a id="L467">467</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($sister =~ /Mrs\.\s(.+?),\s(.+)/) { }</td></tr>
-<tr><td class="h"><a id="L471">471</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($name =~ /(\w+)\s+(\w+)/) { }</td></tr>
-<tr><td class="h"><a id="L495">495</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($family{&#39;sisters&#39;})</td></tr>
-<tr><td class="h"><a id="L507">507</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($text =~ /predeceased by (his|her) brothers?\s*([^;\.]+);?/i) { }</td></tr>
-<tr><td class="h"><a id="L515">515</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">$text =~ /\bpredeceased by.*?$1/i ? :</td></tr>
-<tr><td class="h"><a id="L520">520</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">unless ($family{&#39;brothers&#39;} or $family{&#39;sisters&#39;} or $family{&#39;siblings&#39;})</td></tr>
-<tr><td class="h"><a id="L521">521</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /sister of ([a-z]+) and ([a-z]+)/i)</td></tr>
-<tr><td class="h"><a id="L528">528</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless (exists $family{&#39;brothers&#39;})</td></tr>
-<tr><td class="h"><a id="L529">529</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sbrothers,\s*(.*?)[;\.]/s)</td></tr>
-<tr><td class="h"><a id="L531">531</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($brothers_text =~ /, all of (.+)$/) { }</td></tr>
-<tr><td class="h"><a id="L535">535</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($son =~ /(\w+)\s+and\s+(\w+)/) { }</td></tr>
-<tr><td class="h"><a id="L567">567</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (not exists $family{&#39;brothers&#39;} and $text =~ /\b(?:two|three|four)\s+brothers?,\s*(.+?)(?:,\s*a\s+(?:sister|half-sister)|;)/i)</td></tr>
-<tr><td class="h"><a id="L573">573</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if ($brothers_text =~ /\band\b/)</td></tr>
-<tr><td class="h"><a id="L585">585</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if scalar @brothers</td></tr>
-<tr><td class="h"><a id="L589">589</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">$text =~ /as well as several nieces and nephews/i ? :</td></tr>
-<tr><td class="h"><a id="L592">592</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /(son|daughter) of the late\s+(.+?)\s+and\s+(.+?)\./i) { }</td></tr>
+<tr><td class="h"><a id="L436">436</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /predeceased by (his|her) sisters?\s*([^;\.]+);?/i) { }</td></tr>
+<tr><td class="h"><a id="L444">444</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($name eq &quot;Mrs&quot;)</td></tr>
+<tr><td class="h"><a id="L445">445</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($text =~ / sister,\s*Mrs\.\s+([A-Z][a-zA-Z]+\s+[A-Z][a-zA-Z]+)/) { }</td></tr>
+<tr><td class="h"><a id="L451">451</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($name)</td></tr>
+<tr><td class="h"><a id="L452">452</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">$text =~ /\bpredeceased by.*?$name/i ? :</td></tr>
+<tr><td class="h"><a id="L460">460</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless (exists $family{&#39;sisters&#39;})</td></tr>
+<tr><td class="h"><a id="L461">461</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\stwo\ssisters,\s*(.*?)\sand\s(.*?)[;:]/s)</td></tr>
+<tr><td class="h"><a id="L464">464</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($sister =~ /Mrs\.\s(.+?),\s(.+)/) { }</td></tr>
+<tr><td class="h"><a id="L468">468</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($name =~ /(\w+)\s+(\w+)/) { }</td></tr>
+<tr><td class="h"><a id="L492">492</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($family{&#39;sisters&#39;})</td></tr>
+<tr><td class="h"><a id="L504">504</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($text =~ /predeceased by (his|her) brothers?\s*([^;\.]+);?/i) { }</td></tr>
+<tr><td class="h"><a id="L512">512</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">$text =~ /\bpredeceased by.*?$1/i ? :</td></tr>
+<tr><td class="h"><a id="L517">517</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">unless ($family{&#39;brothers&#39;} or $family{&#39;sisters&#39;} or $family{&#39;siblings&#39;})</td></tr>
+<tr><td class="h"><a id="L518">518</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /sister of ([a-z]+) and ([a-z]+)/i)</td></tr>
+<tr><td class="h"><a id="L525">525</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless (exists $family{&#39;brothers&#39;})</td></tr>
+<tr><td class="h"><a id="L526">526</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sbrothers,\s*(.*?)[;\.]/s)</td></tr>
+<tr><td class="h"><a id="L528">528</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($brothers_text =~ /, all of (.+)$/) { }</td></tr>
+<tr><td class="h"><a id="L532">532</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($son =~ /(\w+)\s+and\s+(\w+)/) { }</td></tr>
+<tr><td class="h"><a id="L564">564</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (not exists $family{&#39;brothers&#39;} and $text =~ /\b(?:two|three|four)\s+brothers?,\s*(.+?)(?:,\s*a\s+(?:sister|half-sister)|;)/i)</td></tr>
+<tr><td class="h"><a id="L570">570</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if ($brothers_text =~ /\band\b/)</td></tr>
+<tr><td class="h"><a id="L582">582</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if scalar @brothers</td></tr>
+<tr><td class="h"><a id="L586">586</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">$text =~ /as well as several nieces and nephews/i ? :</td></tr>
+<tr><td class="h"><a id="L589">589</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /(son|daughter) of the late\s+(.+?)\s+and\s+(.+?)\./i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /parents were (\w+) and (\w+)/i) { }</td></tr>
-<tr><td class="h"><a id="L600">600</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($mother =~ /(.+)\s+\((.+)\)\s+(.+)/)</td></tr>
-<tr><td class="h"><a id="L615">615</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /(wife|husband) of the late\s+([\w\s]+)\s+\((\d{4})\)/) { }</td></tr>
+<tr><td class="h"><a id="L597">597</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($mother =~ /(.+)\s+\((.+)\)\s+(.+)/)</td></tr>
+<tr><td class="h"><a id="L612">612</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /(wife|husband) of the late\s+([\w\s]+)\s+\((\d{4})\)/) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /\bmarried ([^,]+),.*?\b(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})(?:.*?\b(?:at|in)\s+([^.,]+))?/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /husband (?:to|of) the late\s([\w\s]+)[\s\.]/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /\b(?:wife|husband) of ([^.,;]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /\bsurvived by her husband ([^.,;]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /\bsurvived by his wife[,\s]+([^.,;]+)/i) { }</td></tr>
-<tr><td class="h"><a id="L656">656</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if (exists $family{&#39;spouse&#39;} and ref $family{&#39;spouse&#39;} eq &quot;HASH&quot; and defined $family{&#39;spouse&#39;}[0]{&#39;location&#39;} and $family{&#39;spouse&#39;}[0]{&#39;location&#39;} eq &quot;the late&quot;)</td></tr>
-<tr><td class="h"><a id="L661">661</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /funeral service.*?at\s+(.+?),?\s+on\s+(.*?),?\s+at\s+(.+?)\./) { }</td></tr>
+<tr><td class="h"><a id="L653">653</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if (exists $family{&#39;spouse&#39;} and ref $family{&#39;spouse&#39;} eq &quot;HASH&quot; and defined $family{&#39;spouse&#39;}[0]{&#39;location&#39;} and $family{&#39;spouse&#39;}[0]{&#39;location&#39;} eq &quot;the late&quot;)</td></tr>
+<tr><td class="h"><a id="L658">658</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /funeral service.*?at\s+(.+?),?\s+on\s+(.*?),?\s+at\s+(.+?)\./) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /funeral service.*?at\s+([^\n]+?)\s+on\s+([^\n]+)\s+at\s+([^\n]+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /funeral services.+\sat\s(.+)\sat\s(.+),\swith\s/i) { }</td></tr>
 <tr><td class="h"></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /funeral services.+\sat\s(.+),\swith\s/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /services.+\sat\s(.+),\swith\s/i) { }</td></tr>
-<tr><td class="h"><a id="L673">673</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($family{&#39;funeral&#39;}{&#39;date&#39;} =~ /(.+?)\.\s{2,}/)</td></tr>
-<tr><td class="h"><a id="L675">675</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($family{&#39;funeral&#39;}{&#39;date&#39;} =~ /(.+?)\sat\s(.+)/)</td></tr>
-<tr><td class="h"><a id="L693">693</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /father-in-law to\s+([A-Za-z\s]+)/) { }</td></tr>
+<tr><td class="h"><a id="L670">670</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($family{&#39;funeral&#39;}{&#39;date&#39;} =~ /(.+?)\.\s{2,}/)</td></tr>
+<tr><td class="h"><a id="L672">672</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($family{&#39;funeral&#39;}{&#39;date&#39;} =~ /(.+?)\sat\s(.+)/)</td></tr>
+<tr><td class="h"><a id="L690">690</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /father-in-law to\s+([A-Za-z\s]+)/) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /mother-in-law to\s+([A-Za-z\s]+)/i) { }</td></tr>
-<tr><td class="h"><a id="L699">699</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (scalar($family{&#39;children_in_law&#39;} == 0))</td></tr>
-<tr><td class="h"><a id="L705">705</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /niece of\s+([A-Za-z]+)/)</td></tr>
-<tr><td class="h"><a id="L711">711</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /[^\b]Born in ([^,]+),.*?\b(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})/i) { }</td></tr>
+<tr><td class="h"><a id="L696">696</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (scalar($family{&#39;children_in_law&#39;} == 0))</td></tr>
+<tr><td class="h"><a id="L702">702</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /niece of\s+([A-Za-z]+)/)</td></tr>
+<tr><td class="h"><a id="L708">708</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /[^\b]Born in ([^,]+),.*?\b(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /[^\b]Born in ([a-z,\.\s]+)\s+on\s+(.+)/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /S?he was born (.+)\sin ([a-z,\.\s]+)\s+to\s+(.+?)\sand\s(.+?)\./i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($text =~ /[^\b]S?he was born\s*(?:on\s+)?([A-Z][a-z]+ \d{1,2}, \d{4})[,\s]+(?:in\s+)([^,]+)?/i) { }</td></tr>
-<tr><td class="h"><a id="L718">718</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (my $location = _extract_location($1))</td></tr>
-<tr><td class="h"><a id="L721">721</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($2))</td></tr>
-<tr><td class="h"><a id="L730">730</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = &quot;DateTime::Format::Text&quot;-&gt;parse_datetime($1))</td></tr>
-<tr><td class="h"><a id="L738">738</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($mother =~ /(.+)\s+\((.+)\)\s+(.+)/)</td></tr>
-<tr><td class="h"><a id="L741">741</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($father =~ /(.+?)\.\s\s/)</td></tr>
-<tr><td class="h"><a id="L748">748</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($text =~ /survived by (his|her) (father|mother)[\s,;]/i)</td></tr>
-<tr><td class="h"><a id="L752">752</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($1))</td></tr>
-<tr><td class="h"><a id="L755">755</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($2)</td></tr>
-<tr><td class="h"><a id="L761">761</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bpassed away\b.*?\b(?:on\s+)?([A-Z]+ \d{1,2}, \d{4})/i)</td></tr>
-<tr><td class="h"><a id="L763">763</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($1))</td></tr>
-<tr><td class="h"><a id="L769">769</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /,\s(\d{1,3}), of\s/)</td></tr>
-<tr><td class="h"><a id="L770">770</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($1 &lt; 110)</td></tr>
-<tr><td class="h"><a id="L776">776</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\b(?:passed away|died)\b([a-z0-9\s,]+)\sat\s+(.+?)\./i)</td></tr>
-<tr><td class="h"><a id="L778">778</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($place =~ /(.+)\s+on\s+([A-Z]+ \d{1,2}, \d{4})/i) { }</td></tr>
+<tr><td class="h"><a id="L715">715</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (my $location = _extract_location($1))</td></tr>
+<tr><td class="h"><a id="L718">718</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($2))</td></tr>
+<tr><td class="h"><a id="L727">727</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = &quot;DateTime::Format::Text&quot;-&gt;parse_datetime($1))</td></tr>
+<tr><td class="h"><a id="L735">735</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($mother =~ /(.+)\s+\((.+)\)\s+(.+)/)</td></tr>
+<tr><td class="h"><a id="L738">738</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($father =~ /(.+?)\.\s\s/)</td></tr>
+<tr><td class="h"><a id="L745">745</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($text =~ /survived by (his|her) (father|mother)[\s,;]/i)</td></tr>
+<tr><td class="h"><a id="L749">749</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($1))</td></tr>
+<tr><td class="h"><a id="L752">752</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($2)</td></tr>
+<tr><td class="h"><a id="L758">758</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\bpassed away\b.*?\b(?:on\s+)?([A-Z]+ \d{1,2}, \d{4})/i)</td></tr>
+<tr><td class="h"><a id="L760">760</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($1))</td></tr>
+<tr><td class="h"><a id="L766">766</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /,\s(\d{1,3}), of\s/)</td></tr>
+<tr><td class="h"><a id="L767">767</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($1 &lt; 110)</td></tr>
+<tr><td class="h"><a id="L773">773</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\b(?:passed away|died)\b([a-z0-9\s,]+)\sat\s+(.+?)\./i)</td></tr>
+<tr><td class="h"><a id="L775">775</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($place =~ /(.+)\s+on\s+([A-Z]+ \d{1,2}, \d{4})/i) { }</td></tr>
 <tr><td class="h"></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">elsif ($place =~ /(.+)\son\s(.+)/) { }</td></tr>
-<tr><td class="h"><a id="L783">783</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($2))</td></tr>
-<tr><td class="h"><a id="L794">794</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $family{$_}</td></tr>
-<tr><td class="h"><a id="L798">798</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (ref $family{$key} eq &quot;ARRAY&quot;)</td></tr>
-<tr><td class="h"><a id="L800">800</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (@{$family{$key};} == 0)</td></tr>
-<tr><td class="h"><a id="L806">806</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless scalar keys %family</td></tr>
-<tr><td class="h"><a id="L818">818</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if $dt and not $@</td></tr>
-<tr><td class="h"><a id="L825">825</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">unless ($geocoder)</td></tr>
-<tr><td class="h"><a id="L827">827</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($@)</td></tr>
-<tr><td class="h"><a id="L836">836</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless scalar @locations</td></tr>
-<tr><td class="h"><a id="L840">840</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if (ref $result)</td></tr>
+<tr><td class="h"><a id="L780">780</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if (my $dt = _extract_date($2))</td></tr>
+<tr><td class="h"><a id="L791">791</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if defined $family{$_}</td></tr>
+<tr><td class="h"><a id="L795">795</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (ref $family{$key} eq &quot;ARRAY&quot;)</td></tr>
+<tr><td class="h"><a id="L797">797</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if (@{$family{$key};} == 0)</td></tr>
+<tr><td class="h"><a id="L803">803</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">unless scalar keys %family</td></tr>
+<tr><td class="h"><a id="L815">815</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if $dt and not $@</td></tr>
+<tr><td class="h"><a id="L822">822</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">unless ($geocoder)</td></tr>
+<tr><td class="h"><a id="L824">824</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($@)</td></tr>
+<tr><td class="h"><a id="L833">833</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">unless scalar @locations</td></tr>
+<tr><td class="h"><a id="L837">837</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if (ref $result)</td></tr>
 </table>
 </body>
 </html>
