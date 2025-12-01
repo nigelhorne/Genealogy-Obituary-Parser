@@ -8,6 +8,7 @@ README.md
 scripts/generate_index.pl
 t/00-load.t
 t/30-basics.t
+t/children.t
 t/comment-spelling.t
 t/complex.t
 t/conf/parse_obituary.yml
