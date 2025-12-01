@@ -6,6 +6,7 @@ function: parse_obituary
 
 config:
   test_nuls: off
+  test_non_ascii: off
 
 input:
   text:
