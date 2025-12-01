@@ -4,6 +4,7 @@ Revision history for Genealogy::Obituary::Parser
 	Preserve the DateTime object in the date record
 	Remove date of marriage from the marriage record in the spouse record
 	Collapse multiple commas
+	Handle "Name1, Name2 and Name3" correctly
 
 0.04	Mon Oct 20 20:32:42 EDT 2025
 	Fix version consistency

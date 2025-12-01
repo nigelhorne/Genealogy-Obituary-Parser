@@ -237,8 +237,17 @@ sub parse_obituary
 
 		# Fallback: Split by comma or 'and'
 		$phrase =~ s/, and grandchildren.+//;	# Handle "Anna and Lucy, and grandchildren Jake and Emma"
-		my @parts = split /\s*(?:,|and)\s*/, $phrase;
-		push @names, grep { defined($_) && $_ ne '' } @parts;
+
+		# Handle "Name1, Name2 and Name3" correctly
+		if($phrase =~ /(.+?),\s*(\w+)\s+and\s+(\w+)/) {
+			my ($firsts, $second, $third) = ($1, $2, $3);
+			my @firsts = split /\s*,\s*/, $firsts;
+			push @names, @firsts, $second, $third;
+		} else {
+			my @parts = split /\s*(?:,|and)\s*/, $phrase;
+			push @names, grep { defined($_) && $_ ne '' } @parts;
+		}
+
 		return @names;
 	}
 
