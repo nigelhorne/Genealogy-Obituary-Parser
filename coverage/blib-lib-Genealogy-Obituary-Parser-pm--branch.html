@@ -20,7 +20,7 @@ https://pjcj.net
 <h1>Branch Coverage</h1>
 <table>
 <tr><td class="h" align="right">File:</td><td align="left">blib/lib/Genealogy/Obituary/Parser.pm</td></tr>
-<tr><td class="h" align="right">Coverage:</td><td align="left" class="c0">74.0%</td></tr>
+<tr><td class="h" align="right">Coverage:</td><td align="left" class="c0">74.8%</td></tr>
 </table>
 <div><br/></div>
 <table>
@@ -67,7 +67,7 @@ https://pjcj.net
 <tr><td class="h"></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">elsif ($child ne &#39;Mrs&#39;) { }</td></tr>
 <tr><td class="h"><a id="L386">386</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if @children</td></tr>
 <tr><td class="h"><a id="L389">389</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;children&#39;})</td></tr>
-<tr><td class="h"><a id="L390">390</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if ($text =~ /\ssons?[,\s]\s*(.+?)[;\.]/)</td></tr>
+<tr><td class="h"><a id="L390">390</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\ssons?[,\s]\s*(.+?)[;\.]/)</td></tr>
 <tr><td class="h"><a id="L396">396</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sdaughters?[,\s]\s*(.+?)[;\.]/)</td></tr>
 <tr><td class="h"><a id="L405">405</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless ($family{&#39;grandchildren&#39;})</td></tr>
 <tr><td class="h"><a id="L406">406</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /grandchildren\s+([^\.;]+)/i)</td></tr>
@@ -96,7 +96,7 @@ https://pjcj.net
 <tr><td class="h"><a id="L527">527</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /sister of ([a-z]+) and ([a-z]+)/i)</td></tr>
 <tr><td class="h"><a id="L534">534</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">unless (exists $family{&#39;brothers&#39;})</td></tr>
 <tr><td class="h"><a id="L535">535</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($text =~ /\sbrothers,\s*(.*?)[;\.]/s)</td></tr>
-<tr><td class="h"><a id="L537">537</a></td><td class="c0">50</td><td class="c3">T</td><td class="c0">F</td><td class="s">if ($brothers_text =~ /, all of (.+)$/) { }</td></tr>
+<tr><td class="h"><a id="L537">537</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($brothers_text =~ /, all of (.+)$/) { }</td></tr>
 <tr><td class="h"><a id="L541">541</a></td><td class="c3">100</td><td class="c3">T</td><td class="c3">F</td><td class="s">if ($son =~ /(\w+)\s+and\s+(\w+)/) { }</td></tr>
 <tr><td class="h"><a id="L573">573</a></td><td class="c0">50</td><td class="c0">T</td><td class="c3">F</td><td class="s">if (not exists $family{&#39;brothers&#39;} and $text =~ /\b(?:two|three|four)\s+brothers?,\s*(.+?)(?:,\s*a\s+(?:sister|half-sister)|;)/i)</td></tr>
 <tr><td class="h"><a id="L579">579</a></td><td class="c0">0</td><td class="c0">T</td><td class="c0">F</td><td class="s">if ($brothers_text =~ /\band\b/)</td></tr>
