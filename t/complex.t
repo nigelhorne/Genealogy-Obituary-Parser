@@ -21,8 +21,8 @@ my $foo = parse_obituary(\$str);
 cmp_deeply($foo,
 	{
 		'sisters' => [
-			{ 'name' => 'Dorothy Knowles' },
-			{ 'name' => 'Audrey Little' }
+			{ 'name' => 'Audrey Little' },
+			{ 'name' => 'Dorothy Knowles' }
 		], 'grandchildren' => [
 			{ 'name' => 'Stacey' },
 			{ 'name' => 'Tara Steeves' }
@@ -33,6 +33,9 @@ cmp_deeply($foo,
 			'mother' => { 'name' => 'Lilly Peters' }
 		}, 'children' => [
 			{
+				'location' => 'Dartmouth, NS',
+				'name' => 'Carol Girvan'
+			}, {
 				'location' => 'Riverview, NB',
 				'spouse' => 'Leslie',
 				'name' => 'Gwen Steeves'
@@ -40,9 +43,6 @@ cmp_deeply($foo,
 				'location' => 'Surrey, BC',
 				'spouse' => 'Terry',
 				'name' => 'Ian Girvan'
-			}, {
-				'location' => 'Dartmouth, NS',
-				'name' => 'Carol Girvan'
 			}
 		], 'spouse' => [
 			{
@@ -99,16 +99,16 @@ $foo = parse_obituary($str);
 cmp_deeply($foo,
 	{
 		'children' => [
+			{ 'name' => 'Anya' },
 			{ 'name' => 'Jeremy' },
-			{ 'name' => 'Lorna' },
-			{ 'name' => 'Anya' }
+			{ 'name' => 'Lorna' }
 		 ], 'grandchildren' => [
 			'Aimee',
-			'Nathan',
-			'Tommy',
-			'Harry',
 			'Emily',
-			'Luke'
+			'Harry',
+			'Luke',
+			'Nathan',
+			'Tommy'
 		], 'children_in_law' => [
 			'Linda',
 			'Michael',
@@ -185,8 +185,8 @@ cmp_deeply($foo,
 	{
 	   'children' => [
 			   { 'name' => 'Christopher', 'sex' => 'M' },
-			   { 'name' => 'Thomas', 'sex' => 'M' },
-			   { 'name' => 'Marsha', 'sex' => 'F' }
+			   { 'name' => 'Marsha', 'sex' => 'F' },
+			   { 'name' => 'Thomas', 'sex' => 'M' }
 			 ],
 	   'birth' => {
 			'date' => '1937/05/21',
@@ -220,9 +220,9 @@ diag(Data::Dumper->new([$foo])->Dump()) if($ENV{'TEST_VERBOSE'});
 cmp_deeply($foo,
 	{
 		'grandchildren' => [
-			'Dale',
+			'Aidan',
 			'Caitlin',
-			'Aidan'
+			'Dale',
 		], 'aunt' => [
 			{ 'name' => 'Winnie' }
 		], 'children' => [
@@ -233,8 +233,8 @@ cmp_deeply($foo,
 			'location' => 'Preston Cemetery',
 			'time' => '1.15pm'
 		}, 'siblings' => [
-			{ 'name' => 'Gillian' },
-			{ 'name' => 'Adrian' }
+			{ 'name' => 'Adrian' },
+			{ 'name' => 'Gillian' }
 		]
 	}
 );
@@ -262,9 +262,10 @@ cmp_deeply($foo,
 		  ], 'children' => [
 			{
 				'name' => 'Michael',
+				'name' => 'Douglas',
 				'sex' => 'M'
 			}, {
-				'name' => 'Douglas',
+				'name' => 'Michael',
 				'sex' => 'M'
 			}
 		], 'funeral' => {

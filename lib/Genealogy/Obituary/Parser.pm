@@ -198,14 +198,11 @@ sub parse_obituary
 			last if($name =~ /^loved\s/i);
 
 			# Create a hash and filter out blank fields
-			my %person = (
-				name	 => $name,
-				spouse => $spouse,
-				location => $location,
-			);
 
-			# Remove blank fields
-			%person = map { $_ => $person{$_} } grep { defined $person{$_} && $person{$_} ne '' } keys %person;
+			my %person = ( name => $name );
+
+			$person{spouse} = $spouse if defined $spouse && $spouse ne '';
+			$person{location} = $location if defined $location && $location ne '';
 
 			push @people, \%person;
 		}
@@ -277,7 +274,10 @@ sub parse_obituary
 			push @grandchildren, { 'name' => $1, 'sex' => 'F' };
 		}
 		$family{children} = \@children if @children;
-		$family{grandchildren} = \@grandchildren if @grandchildren;
+		if(@grandchildren) {
+			@grandchildren = sort @grandchildren;
+			$family{grandchildren} = \@grandchildren;
+		}
 	} elsif($text =~ /Surviving are (?:a )?daughters?,\s*Mrs\.\s+(\w+)\s+\(([^)]+)\)\s+(\w+),\s+([^;]+?);/i) {
 		# Handle "Surviving are a daughter, Mrs. Walter (Ruth Ann) Gerke, Fort Wayne"
 		my @children;
@@ -406,6 +406,7 @@ sub parse_obituary
 		if($text =~ /grandchildren\s+([^\.;]+)/i) {
 			my @grandchildren = split /\s*(?:,|and)\s*/i, $1;
 			if(scalar(@grandchildren)) {
+				@grandchildren = sort @grandchildren;
 				$family{'grandchildren'} = [ map { { 'name' => $_ } } grep { defined $_ && $_ ne '' } @grandchildren ];
 			}
 		}
@@ -433,11 +434,13 @@ sub parse_obituary
 			@grandchildren = split /,\s*|\s+and\s+/, $grandchildren_str;
 		}
 		if(scalar(@grandchildren)) {
+			@grandchildren = sort @grandchildren;
 			$family{'grandchildren'} = \@grandchildren;
 		} elsif($text =~ /grandm\w+\s/) {
 			my $t = $text;
 			$t =~ s/.+(grandm\w+\s+.+?\sand\s[\w\.;,]+).+/$1/;
-			$family{grandchildren} = [ split /\s*(?:,|and)\s*/i, ($t =~ /grandm\w+\sto\s+([^\.;]+)/i)[0] || '' ];
+			my @grandchildren = sort ( split /\s*(?:,|and)\s*/i, ($t =~ /grandm\w+\sto\s+([^\.;]+)/i)[0] || '' );
+			$family{grandchildren} = \@grandchildren;
 		}
 	}
 
@@ -811,8 +814,51 @@ sub parse_obituary
 
 	return if(!scalar keys(%family));
 
+	%family = %{_canonicalize(\%family)};
+
 	return Return::Set::set_return(\%family, { type => 'hashref', 'min' => 1, 'max' => 10 });
 }
+
+
+sub _canonicalize {
+    my ($data) = @_;
+
+    return $data unless ref $data eq 'HASH';
+
+    for my $key (keys %$data) {
+        my $val = $data->{$key};
+
+        if (ref $val eq 'ARRAY') {
+            my @hashes;
+            my @non_hashes;
+
+            for my $item (@$val) {
+                if (ref $item eq 'HASH' && exists $item->{name}) {
+                    push @hashes, _canonicalize($item);  # canonicalize recursively
+                } else {
+                    push @non_hashes, $item;
+                }
+            }
+
+            # Sort people hashes by name
+            @hashes = sort { ($a->{name} // '') cmp ($b->{name} // '') } @hashes;
+
+            # Replace array in place
+            $data->{$key} = [ @hashes, @non_hashes ];
+        }
+        elsif (ref $val eq 'HASH') {
+            # Normalize whitespace in names
+            if (exists $val->{name}) {
+                $val->{name} =~ s/\s+/ /g;
+                $val->{name} =~ s/^\s+|\s+$//g;
+            }
+            $data->{$key} = _canonicalize($val);
+        }
+    }
+
+    return $data;
+}
+
 
 sub _extract_date
 {

@@ -2,6 +2,8 @@ use strict;
 use warnings;
 use Test::Most;
 
+# Test of files that should return data, but there's nothing in it yet, these will be files to fix
+
 use Genealogy::Obituary::Parser qw(parse_obituary);
 
 for my $dir (qw(t/corpus/broken)) {
@@ -22,5 +24,4 @@ for my $dir (qw(t/corpus/broken)) {
 	}
 }
 
-done_testing;
-
+done_testing();

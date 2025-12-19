@@ -22,8 +22,8 @@ cmp_deeply($rel,
 			{ 'name' => 'Anna', 'sex' => 'F' },
 			{ 'name' => 'Lucy', 'sex' => 'F' }
 		], 'grandchildren' => [
-			{ 'name' => 'Jake' },
-			{ 'name' => 'Emma' }
+			{ 'name' => 'Emma' },
+			{ 'name' => 'Jake' }
 		]
 	}
 );

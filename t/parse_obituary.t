@@ -24,14 +24,14 @@ cmp_deeply($rel,
 			'father' => { 'name' => 'George' },
 			'mother' => { 'name' => 'Helen' }
 		}, 'children' => [
-			{ 'name' => 'John', 'sex' => 'M' },
-			{ 'name' => 'David', 'sex' => 'M' }
+			{ 'name' => 'David', 'sex' => 'M' },
+			{ 'name' => 'John', 'sex' => 'M' }
 		], 'grandchildren' => [
-			{ 'name' => 'Sophie' },
+			{ 'name' => 'Ava' },
 			{ 'name' => 'Liam' },
-			{ 'name' => 'Ava' }
+			{ 'name' => 'Sophie' }
 		], 'sisters' => [
-			{ 'name' => 'Claire', 'status' => 'living', 'sex' => 'F' },
+			{ 'name' => 'Claire', 'status' => 'living', 'sex' => 'F' }
 		]
 	}
 );
@@ -68,13 +68,13 @@ cmp_deeply($rel,
 			 'location' => 'the funeral home'
 		 }, 'brothers' => [
 			{
-				'name' => 'Harold',
+				'name' => 'Carl',
 				'location' => 'Fort Wayne',
 				'sex' => 'M'
 			}, {
+				'name' => 'Harold',
 				'location' => 'Fort Wayne',
-				'sex' => 'M',
-				'name' => 'Carl'
+				'sex' => 'M'
 			}, {
 				'name' => 'Robert',
 				'location' => 'Fort Wayne',
@@ -84,17 +84,9 @@ cmp_deeply($rel,
 			{
 				'location' => 'Fort wayne',
 				'sex' => 'M',
-				'name' => 'John'
+				'name' => 'Jerrold'
 			}, {
-				'name' => 'Michael',
-				'sex' => 'M',
-				'location' => 'Fort wayne'
-			}, {
-				'name' => 'Stephen',
-				'sex' => 'M',
-				'location' => 'Fort wayne'
-			}, {
-				'name' => 'Jerrold',
+				'name' => 'John',
 				'sex' => 'M',
 				'location' => 'Fort wayne'
 			}, {
@@ -104,6 +96,14 @@ cmp_deeply($rel,
 					'name' => 'Newton',
 					'sex' => 'M'
 				},
+				'location' => 'Fort wayne'
+			}, {
+				'name' => 'Michael',
+				'sex' => 'M',
+				'location' => 'Fort wayne'
+			}, {
+				'name' => 'Stephen',
+				'sex' => 'M',
 				'location' => 'Fort wayne'
 			}
 		]
