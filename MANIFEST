@@ -1,4 +1,5 @@
 Changes
+cpanfile
 lib/Genealogy/Obituary/Parser.pm
 LICENSE
 Makefile.PL
